@@ -13,7 +13,8 @@
     obsidian
     bitwarden
 
-    # CLI utils
+    # CLI
+    tmux
     bitwarden-cli
     vim
     neofetch
@@ -49,6 +50,7 @@
     pamixer
 
     # Other
+    cifs-utils
     home-manager
   ];
 
