@@ -57,6 +57,7 @@
 
   fonts.packages = with pkgs; [
     jetbrains-mono
+    fantasque-sans-mono
     noto-fonts
     noto-fonts-emoji
     twemoji-color-font

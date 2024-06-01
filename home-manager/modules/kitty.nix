@@ -5,8 +5,8 @@
     # Pick "name" from https://github.com/kovidgoyal/kitty-themes/blob/master/themes.json
     theme = "Tokyo Night";
     font = {
-      name = "Monaco";
-      size = 14;
+      name = "Fantasque Sans Mono";
+      size = 11;
     };
     settings = {
       # https://github.com/kovidgoyal/kitty/issues/371#issuecomment-1095268494

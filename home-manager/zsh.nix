@@ -12,6 +12,7 @@
       rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
       upd = "nix flake update ${flakeDir}";
       upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
+      nixgc = "nix-garbage-collect --delete-old";
 
       hms = "home-manager switch --flake ${flakeDir}";
 
