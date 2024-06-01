@@ -1,3 +1,4 @@
+{ pkgs, ...  }:
 {
 	programs.tmux = {
 	    enable = true;
@@ -10,8 +11,8 @@
 	    # Force tmux to use /tmp for sockets (WSL2 compat)
 	    secureSocket = false;
 
-	    plugins = [
-	      pkgs.tmuxPlugins.better-mouse-mode
+	    plugins = with pkgs; [
+	      tmuxPlugins.better-mouse-mode
 	    ];
 
 	    extraConfig = ''

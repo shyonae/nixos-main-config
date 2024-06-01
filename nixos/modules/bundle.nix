@@ -7,5 +7,7 @@
 		./sound.nix
 		./user.nix
 		./xserver.nix
+		./samba.nix
+		./garbage-collect.nix
 	];
 }

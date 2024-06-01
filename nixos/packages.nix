@@ -50,6 +50,7 @@
     pamixer
 
     # Other
+    samba4Full
     cifs-utils
     home-manager
   ];
