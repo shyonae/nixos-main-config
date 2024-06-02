@@ -34,6 +34,7 @@
       };
       modules = [
         ./nixos/configuration.nix
+	inputs.nixvim.nixosModules.nixvim
       ];
     };
 
