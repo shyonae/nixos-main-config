@@ -21,13 +21,12 @@
 
 		let
 			system = "x86_64-linux";
-			lib = nixpkgs.lib;
 			pkgs = nixpkgs.legacyPackages.${system};
 		in {
 
 		# nixos - system hostname
-		nixosConfigurations.nixos = lib.nixosSystem {
-	      		inherit system inputs;
+		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+	      		inherit system inputs pkgs;
 			modules = [
 				./nixos/configuration.nix
 				inputs.nixvim.nixosModules.nixvim
