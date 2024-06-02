@@ -1,25 +1,20 @@
 { pkgs, pkgs-stable, ... }: {
-    programs.zsh.enable = true;
+  programs.zsh.enable = true;
 
-    users = {
-        defaultUserShell = pkgs.zsh;
+  users = {
+    defaultUserShell = pkgs.zsh;
 
-        users.shyonae = {
-            isNormalUser = true;
-            description = "Main user";
-            extraGroups = [ "networkmanager" "wheel" "input" ];
-            packages = 
-                (with pkgs; [
-                    # unstable packages here
-                ])
-
-                (with pkgs-stable; [
-                        # stable packages here
-                ]);
-        };
+    users.shyonae = {
+      isNormalUser = true;
+      description = "Main user";
+      extraGroups = [ "networkmanager" "wheel" "input" ];
+      packages = with pkgs; [
+        # unstable packages here
+      ];
     };
+  };
 
-    # Enable automatic login for the user.
-    services.getty.autologinUser = "shyonae";
+  # Enable automatic login for the user.
+  services.getty.autologinUser = "shyonae";
 }
 

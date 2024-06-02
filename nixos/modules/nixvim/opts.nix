@@ -58,7 +58,13 @@
 
       foldlevel = 99; # Folds with a level higher than this number will be closed
 
-      completeopt = ["menu" "menuone" "noselect"]; # For CMP plugin
+      completeopt = [ "menu" "menuone" "noselect" ]; # For CMP plugin
+
+      tabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      smarttab = true;
+      backspace = "indent,eol,start";
     };
   };
 }
