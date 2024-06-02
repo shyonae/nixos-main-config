@@ -11,11 +11,6 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		home-manager-stable = {
-			url = "github:nix-community/home-manager/release-24.05";
-			inputs.nixpkgs-stable.follows = "nixpkgs-stable";
-		};
-
 		nixvim = {
 			url = "github:nix-community/nixvim";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -28,34 +23,29 @@
 			system = "x86_64-linux";
 			lib = nixpkgs.lib;
 			pkgs = nixpkgs.legacyPackages.${system};
-			pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-			hostname = "nixos";
-			username = "shyonae";
 		in {
 
 		# nixos - system hostname
-		nixosConfigurations.hostname = lib.nixosSystem {
-      		inherit system inputs;
+		nixosConfigurations.nixos = lib.nixosSystem {
+	      		inherit system inputs;
 			modules = [
 				./nixos/configuration.nix
 				inputs.nixvim.nixosModules.nixvim
 			];
 			specialArgs = {
-				inherit hostname;
-				inherit pkgs-stable;
+        			pkgs-stable = import nixpkgs-stable {
+          				inherit system;
+          				config.allowUnfree = true;
+        			};
 			};
 		};
 
-			homeConfigurations.shyonae = home-manager.lib.homeManagerConfiguration {
-				inherit pkgs;
-				modules = [ 
-					./home-manager/home.nix 
-				];
-				extraSpecialArgs = {
-					inherit hostname;
-					inherit pkgs-stable;
-				};
-			};
+		homeConfigurations.shyonae = home-manager.lib.homeManagerConfiguration {
+			inherit pkgs;
+			modules = [ 
+				./home-manager/home.nix 
+			];
+		};
 	};
 }
 
