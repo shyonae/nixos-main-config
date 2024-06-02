@@ -18,37 +18,38 @@
 	};
 
 	outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
-
 		let
 			system = "x86_64-linux";
-			pkgs = nixpkgs.legacyPackages.${system};
+			pkgs = import nixpkgs {
+				inherit system;
+				config.allowUnfree = true;
+			};
 			pkgs-stable = import nixpkgs-stable {
-					inherit system;
-					config.allowUnfree = true;
-        	};
+				inherit system;
+				config.allowUnfree = true;
+			};
+		        hostname = "nixos";
+		        username = "shyonae";
 		in {
 
-		# nixos - system hostname
-		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-	      	inherit system inputs pkgs;
-			modules = [
-				./nixos/configuration.nix
-				inputs.nixvim.nixosModules.nixvim
-			];
-			specialArgs = {
-        			inherit pkgs-stable 
-			};
-		};
+		    # nixos - system hostname
+		    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+		      specialArgs = {
+		        inherit inputs system pkgs pkgs-stable;
+		      };
+		      modules = [
+		        ./nixos/configuration.nix
+			inputs.nixvim.nixosModules.nixvim
+		      ];
+		    };
 
-		homeConfigurations.shyonae = home-manager.lib.homeManagerConfiguration {
+		    homeConfigurations.shyonae = home-manager.lib.homeManagerConfiguration {
 			inherit pkgs;
-			modules = [ 
-				./home-manager/home.nix 
-			];
 			extraSpecialArgs = {
-        			inherit pkgs-stable 
+				inherit inputs system pkgs-stable;
 			};
-		};
-	};
+			modules = [ ./home-manager/home.nix ];
+	    };
+	  };
 }
 

@@ -5,15 +5,16 @@
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
 
-        shellAliases =
-        let
-            flakeDir = "~/nix";
-        in {
-            rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
-            upd = "nix flake update ${flakeDir}";
-            ncl = "sudo nix-channel --list";
-            upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
-            ngc = "nix-collect-garbage --delete-old";
+    shellAliases =
+      let
+        flakeDir = "~/nix";
+      in {
+      rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
+      rbdry = "sudo nixos-rebuild dry-activate --flake ${flakeDir}";
+      upd = "nix flake update ${flakeDir}";
+      ncl = "sudo nix-channel --list";
+      upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
+      nixgc = "nix-garbage-collect --delete-old";
 
             hms = "home-manager switch --flake ${flakeDir}";
 

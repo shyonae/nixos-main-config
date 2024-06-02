@@ -1,7 +1,4 @@
-{ pkgs, pkgs-stable,... }: {
-	nixpkgs.config = {
-		allowUnfree = true;
-	};
+{ pkgs, pkgs-stable, ... }: {
 
 	environment.systemPackages = 
 		(with pkgs; [
