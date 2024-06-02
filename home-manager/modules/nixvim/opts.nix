@@ -60,10 +60,6 @@
 
       completeopt = [ "menu" "menuone" "noselect" ]; # For CMP plugin
 
-      tabstop = 2;
-      shiftwidth = 2;
-      expandtab = true;
-      smarttab = true;
       backspace = "indent,eol,start";
     };
   };

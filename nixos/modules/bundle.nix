@@ -9,6 +9,5 @@
     ./xserver.nix
     ./samba.nix
     ./garbage-collect.nix
-    ./nixvim/nixvim.nix
   ];
 }

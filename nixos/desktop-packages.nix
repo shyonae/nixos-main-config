@@ -8,5 +8,7 @@
     gparted
     obsidian
     bitwarden
+    clonehero
+    osu-lazer-bin
   ];
 }

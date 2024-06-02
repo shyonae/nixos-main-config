@@ -3,8 +3,8 @@
 
   inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -30,26 +30,28 @@
       };
       hostname = "nixos";
       username = "shyonae";
+      lib = nixpkgs.lib;
+      hlib = home-manager.lib;
     in
     {
-
-      # nixos - system hostname
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.${hostname} = lib.nixosSystem {
         specialArgs = {
           inherit inputs system pkgs pkgs-stable;
         };
         modules = [
           ./nixos/configuration.nix
-          inputs.nixvim.nixosModules.nixvim
         ];
       };
 
-      homeConfigurations.shyonae = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${username} = hlib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit inputs system pkgs-stable;
+          inherit inputs system pkgs-stable username;
         };
-        modules = [ ./home-manager/home.nix ];
+        modules = [ 
+          ./home-manager/home.nix 
+          inputs.nixvim.homeManagerModules.nixvim
+        ];
       };
     };
 }

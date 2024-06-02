@@ -7,7 +7,6 @@
     ./comment.nix
     ./floaterm.nix
     ./telescope.nix
-    ./barbar.nix
     ./nix.nix
     ./lsp.nix
     ./cmp.nix

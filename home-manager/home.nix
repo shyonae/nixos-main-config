@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-stable, ... }: {
+{ config, pkgs, pkgs-stable, username, ... }: {
 
   imports = [
     ./zsh.nix
@@ -6,8 +6,8 @@
   ];
 
   home = {
-    username = "shyonae";
-    homeDirectory = "/home/shyonae";
+    username = username;
+    homeDirectory = "/home/${username}";
     stateVersion = "24.05";
   };
 }	

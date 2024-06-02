@@ -5,6 +5,7 @@
     ./tmux.nix
     ./kitty.nix
     ./vim.nix
+    ./nixvim/nixvim.nix
   ];
 }
 

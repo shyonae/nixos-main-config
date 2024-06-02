@@ -12,7 +12,7 @@
       {
         rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
         rbdry = "sudo nixos-rebuild dry-activate --flake ${flakeDir}";
-        upd = "nix flake update ${flakeDir}";
+        upd = "sudo nix flake update ${flakeDir}";
         ncl = "sudo nix-channel --list";
         upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
         nixgc = "nix-garbage-collect --delete-old";
