@@ -13,7 +13,7 @@
       upd = "nix flake update ${flakeDir}";
       ncl = "sudo nix-channel --list";
       upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
-      nixgc = "nix-garbage-collect --delete-old";
+      ngc = "nix-collect-garbage --delete-old";
 
       hms = "home-manager switch --flake ${flakeDir}";
 

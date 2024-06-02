@@ -21,26 +21,34 @@
 
     let
       system = "x86_64-linux";
+      lib = nixpkgs.lib;
+      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+      hostname = "nixos";
+      username = "shyonae";
     in {
 
     # nixos - system hostname
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        pkgs-stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        inherit inputs system;
-      };
+    nixosConfigurations.hostname = lib.nixosSystem {
       modules = [
         ./nixos/configuration.nix
 	inputs.nixvim.nixosModules.nixvim
       ];
+      specialArgs = {
+        inherit username;
+        inherit hostname;
+        inherit pkgs-stable;
+      };
     };
 
-    homeConfigurations.shyonae = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
+    homeConfigurations.username = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
       modules = [ ./home-manager/home.nix ];
+      extraSpecialArgs = {
+        inherit username;
+        inherit hostname;
+        inherit pkgs-stable;
+      };
     };
   };
 }

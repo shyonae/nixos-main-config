@@ -1,23 +1,14 @@
-{ pkgs, ... }: {
+{ pkgs, pkgs-stable,... }: {
   nixpkgs.config = {
     allowUnfree = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    # Desktop apps
-    telegram-desktop
-    kitty
-    floorp
-    discord
-    gparted
-    obsidian
-    bitwarden
-
+  environment.systemPackages = 
+    (with pkgs; [
     # CLI
-    tmux
     bitwarden-cli
+    tmux
     vim
-    neofetch
     file
     tree
     wget
@@ -53,7 +44,7 @@
     samba4Full
     cifs-utils
     home-manager
-  ];
+  ];);
 
   fonts.packages = with pkgs; [
     jetbrains-mono
