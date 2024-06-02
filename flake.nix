@@ -22,20 +22,21 @@
 		let
 			system = "x86_64-linux";
 			pkgs = nixpkgs.legacyPackages.${system};
+			pkgs-stable = import nixpkgs-stable {
+					inherit system;
+					config.allowUnfree = true;
+        	};
 		in {
 
 		# nixos - system hostname
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-	      		inherit system inputs pkgs;
+	      	inherit system inputs pkgs;
 			modules = [
 				./nixos/configuration.nix
 				inputs.nixvim.nixosModules.nixvim
 			];
 			specialArgs = {
-        			pkgs-stable = import nixpkgs-stable {
-          				inherit system;
-          				config.allowUnfree = true;
-        			};
+        			inherit pkgs-stable 
 			};
 		};
 
@@ -44,6 +45,9 @@
 			modules = [ 
 				./home-manager/home.nix 
 			];
+			extraSpecialArgs = {
+        			inherit pkgs-stable 
+			};
 		};
 	};
 }
