@@ -9,6 +9,7 @@
     [ 
 	./hardware-configuration.nix
 	./packages.nix
+	./desktop-packages.nix
 	./modules/bundle.nix
     ];
 
