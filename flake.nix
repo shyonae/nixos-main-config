@@ -1,55 +1,61 @@
 {
-  description = "My system configuration";
+	description = "My system configuration";
 
-  inputs = {
+	inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+		home-manager = {
+			url = "github:nix-community/home-manager";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
+		home-manager-stable = {
+			url = "github:nix-community/home-manager/release-24.05";
+			inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+		};
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+		nixvim = {
+			url = "github:nix-community/nixvim";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+	};
 
-    let
-      system = "x86_64-linux";
-      lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-      hostname = "nixos";
-      username = "shyonae";
-    in {
+	outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
 
-    # nixos - system hostname
-    nixosConfigurations.hostname = lib.nixosSystem {
-      modules = [
-        ./nixos/configuration.nix
-	inputs.nixvim.nixosModules.nixvim
-      ];
-      specialArgs = {
-        inherit username;
-        inherit hostname;
-        inherit pkgs-stable;
-      };
-    };
+		let
+			system = "x86_64-linux";
+			lib = nixpkgs.lib;
+			pkgs = nixpkgs.legacyPackages.${system};
+			pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+			hostname = "nixos";
+			username = "shyonae";
+		in {
 
-    homeConfigurations.username = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [ ./home-manager/home.nix ];
-      extraSpecialArgs = {
-        inherit username;
-        inherit hostname;
-        inherit pkgs-stable;
-      };
-    };
-  };
+		# nixos - system hostname
+		nixosConfigurations.hostname = lib.nixosSystem {
+      		inherit system inputs;
+			modules = [
+				./nixos/configuration.nix
+				inputs.nixvim.nixosModules.nixvim
+			];
+			specialArgs = {
+				inherit hostname;
+				inherit pkgs-stable;
+			};
+		};
+
+			homeConfigurations.shyonae = home-manager.lib.homeManagerConfiguration {
+				inherit pkgs;
+				modules = [ 
+					./home-manager/home.nix 
+				];
+				extraSpecialArgs = {
+					inherit hostname;
+					inherit pkgs-stable;
+				};
+			};
+	};
 }
 

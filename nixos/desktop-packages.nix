@@ -1,13 +1,17 @@
-{ pkgs, ... }: {
+{ pkgs, pkgs-stable, ... }: {
 
-  environment.systemPackages = with pkgs; [
-    # Desktop apps
-    telegram-desktop
-    kitty
-    floorp
-    discord
-    gparted
-    obsidian
-    bitwarden
-    ];
+    environment.systemPackages = 
+            (with pkgs; [
+                    telegram-desktop
+                    kitty
+                    floorp
+                    discord
+                    gparted
+                    obsidian
+                    bitwarden
+            ])
+
+            (with pkgs-stable; [
+                    # stable packages here
+            ]);
 }
