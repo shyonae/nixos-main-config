@@ -12,6 +12,8 @@ in
   imports =
     [ nixos-wsl.nixosModules.wsl
       ../../system/hardware/time.nix
+      ../../system/hardware/kernel.nix
+      ../../system/hardware/systemd.nix
       ../../system/hardware/printing.nix
       ../../system/hardware/bluetooth.nix
       ../../system/services/garbage-collect.nix
