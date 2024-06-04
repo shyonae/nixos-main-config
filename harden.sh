@@ -22,7 +22,6 @@ pushd $SCRIPT_DIR &> /dev/null;
 chown 0:0 .;
 chown 0:0 profiles/*;
 chown -R 0:0 system;
-chown -R 0:0 patches;
 chown 0:0 flake.lock;
 chown 0:0 flake.nix
 chown 0:0 profiles/*/configuration.nix;
@@ -30,6 +29,5 @@ chown 0:0 harden.sh;
 chown 0:0 soften.sh;
 chown 0:0 install.sh;
 chown 0:0 update.sh;
-chown 1000:users **/README.org;
 popd &> /dev/null;
 

@@ -4,7 +4,7 @@ if [ $# -gt 0 ]
   then
     SCRIPT_DIR=$1
   else
-    SCRIPT_DIR=~/nix
+    SCRIPT_DIR="$HOME/nix"
 fi
 
 # Generate hardware config for new system
@@ -23,18 +23,12 @@ fi
 sed -i "0,/shyonae/s//$(whoami)/" $SCRIPT_DIR/flake.nix
 sed -i "s/scionae@gmail.com//" $SCRIPT_DIR/flake.nix
 
-# Open up editor to manually edit flake.nix before install
-if [ -z "$EDITOR" ]; then
-    EDITOR=nano;
-fi
-$EDITOR $SCRIPT_DIR/flake.nix;
-
 # Permissions for files that should be owned by root
 sudo $SCRIPT_DIR/harden.sh $SCRIPT_DIR;
 
 # Rebuild system
-sudo nixos-rebuild switch --flake $SCRIPT_DIR#system;
+sudo nixos-rebuild switch --flake $SCRIPT_DIR;
 
 # Install and build home-manager configuration
-home-manager switch --flake $SCRIPT_DIR#user;
+home-manager switch --flake $SCRIPT_DIR;
 
