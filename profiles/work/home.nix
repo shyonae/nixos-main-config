@@ -15,6 +15,8 @@
     ../../user/pkgs/kitty.nix
     ../../user/pkgs/tmux.nix
     ../../user/pkgs/ranger.nix
+
+    ../../user/pkgs/home-manager-pkgs-desktop.nix
   ];
 
   home.stateVersion = "23.05";
@@ -24,15 +26,4 @@
     TERM = userSettings.term;
     BROWSER = userSettings.browser;
   };
-
-  home.packages = with pkgs; [
-    telegram-desktop
-    kitty
-    vscode
-    ranger
-    discord
-    obsidian
-    bitwarden
-    syncthing
-  ];
 }	

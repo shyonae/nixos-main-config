@@ -6,6 +6,7 @@
       ../../system/hardware/bluetooth.nix
       ../../system/hardware/printing.nix
       ../../system/hardware/sound.nix
+      ../../system/hardware/time.nix
       ../../system/services/firewall.nix
       ../../system/services/garbage-collect.nix
       ../../system/services/proxy.nix
@@ -15,8 +16,9 @@
       ../../system/style/x11-gnome.nix
       ../../system/style/fonts.nix
 
-      ./pkgs.nix
-      ./pkgs-desktop.nix
+      ../../user/pkgs/pkgs.nix
+      ../../user/pkgs/pkgs-core.nix
+      ../../user/pkgs/pkgs-desktop.nix
     ];
 
   nix.package = pkgs.nixFlakes;

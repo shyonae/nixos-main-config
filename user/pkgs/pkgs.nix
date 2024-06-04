@@ -3,15 +3,8 @@
   environment.systemPackages = with pkgs; [
     # cli utilities
     tmux
-    vim
     file
-    tree
-    wget
-    git
-    fastfetch
-    htop
     nix-index
-    unzip
     scrot
     ffmpeg
     light
@@ -25,13 +18,19 @@
     brightnessctl
     swww
     openssl
-    lazygit
     bluez
     bluez-tools
-    nixpkgs-fmt
-    samba4Full
-    cifs-utils
-    home-manager
+    killall
+    libnotify
+    timer
+    gnugrep
+    bat eza fd bottom ripgrep
+    rsync
+    w3m
+    pandoc
+    hwinfo
+    pciutils
+    numbat
 
     # Sound
     pipewire

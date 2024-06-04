@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Automated script to install my dotfiles
-
-# Clone dotfiles
 if [ $# -gt 0 ]
   then
     SCRIPT_DIR=$1
