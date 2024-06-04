@@ -19,39 +19,62 @@
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
     let
-      system = "x86_64-linux";
+      systemSettings = {
+        system = "x86_64-linux";
+        profile = "personal";
+        hostname = "nixos";
+        timezone = "Italy/Rome";
+        locale = "en_US.UTF-8";
+        bootMode = "grub";
+        bootMountPath = "/boot";
+        grubDevice = "/dev/sda"; # only used for legacy (bios) boot mode
+      };
+
+      userSettings = {
+        username = "shyonae";
+        description = "One sky. One destiny.";
+        email = "scionae@gmail.com";
+        font = "Fantasque Sans Mono"; # Selected font
+        fontPkg = pkgs.fantasque-sans-mono; # Font package
+        term = "kitty";
+        browser = "floorp"; # Default browser; must select one from ./user/app/browser/
+        editor = "vim"; # Default editor;
+      };
+
       pkgs = import nixpkgs {
-        inherit system;
+        system = systemSettings.system;
         config.allowUnfree = true;
       };
+
       pkgs-stable = import nixpkgs-stable {
-        inherit system;
+        system = systemSettings.system;
         config.allowUnfree = true;
       };
-      hostname = "nixos";
-      username = "shyonae";
+
+      username = userSettings.username;
+      hostname = systemSettings.hostname;
       lib = nixpkgs.lib;
       hlib = home-manager.lib;
     in
     {
-      nixosConfigurations.${hostname} = lib.nixosSystem {
-        specialArgs = {
-          inherit inputs system pkgs pkgs-stable;
-        };
+      nixosConfigurations.${systemSettings.hostname} = lib.nixosSystem {
         modules = [
-          ./nixos/configuration.nix
+          (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
         ];
+        specialArgs = {
+          inherit inputs pkgs-stable userSettings systemSettings;
+        };
       };
 
-      homeConfigurations.${username} = hlib.homeManagerConfiguration {
+      homeConfigurations.${userSettings.username} = hlib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs system pkgs-stable username;
-        };
-        modules = [ 
-          ./home-manager/home.nix 
+        modules = [
+          (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
           inputs.nixvim.homeManagerModules.nixvim
         ];
+        extraSpecialArgs = {
+          inherit inputs pkgs-stable userSettings systemSettings;
+        };
       };
     };
 }

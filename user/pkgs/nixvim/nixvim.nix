@@ -6,13 +6,16 @@
     ./autocmds.nix
     ./plugins/plugins-bundle.nix
   ];
-  
+
   programs.nixvim = {
     enable = true;
 
     defaultEditor = true;
     colorschemes.oxocarbon.enable = true;
 
-    extraPlugins = [pkgs.vimPlugins."heirline-nvim"];
+    extraPlugins = [
+      pkgs.vimPlugins."heirline-nvim"
+      pkgs.vimPlugins."cheatsheet-nvim"
+    ];
   };
 }

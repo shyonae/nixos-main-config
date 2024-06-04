@@ -1,9 +1,8 @@
 How-To use:
 
 ```bash
-# clone the repo
-mv nixos-main-config $HOME/nix # Config is supposed to be in the ~/nix directory
-cd $HOME/nix
-sudo nixos-rebuild switch --flake .
-home-manager switch --flake .
+ssh-keygen # add the .pub key in the github settings
+nix-shell -p git --command "git clone git@github.com:shyonae/nixos-main-config.git ~/nix"
+cd ~/nix
+./install.sh
 ```

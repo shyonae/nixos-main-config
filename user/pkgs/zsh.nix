@@ -10,19 +10,13 @@
         flakeDir = "~/nix";
       in
       {
-        rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
-        rbdry = "sudo nixos-rebuild dry-activate --flake ${flakeDir}";
-        upd = "sudo nix flake update ${flakeDir}";
         ncl = "sudo nix-channel --list";
-        upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
-        nixgc = "nix-garbage-collect --delete-old";
-        nfmt = "nixpkgs-fmt";
+        nixgc = "nix-collect-garbage --delete-old";
+        format = "nixpkgs-fmt";
 
-        hms = "home-manager switch --flake ${flakeDir}";
-
-        ll = "ls -l";
-        v = "nvim";
+        ll = "ls -lah";
         se = "sudoedit";
+        v = "nvim";
         ff = "fastfetch";
       };
 
