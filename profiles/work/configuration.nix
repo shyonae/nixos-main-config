@@ -15,11 +15,56 @@
       ../../system/services/flatpak.nix
       ../../system/style/x11-gnome.nix
       ../../system/style/fonts.nix
-
-      ../../user/pkgs/pkgs.nix
-      ../../user/pkgs/pkgs-core.nix
-      ../../user/pkgs/pkgs-desktop.nix
     ];
+
+  environment.systemPackages = with pkgs; [
+    # cli utilities
+    file
+    nix-index
+    scrot
+    ffmpeg
+    light
+    lux
+    mediainfo
+    zram-generator
+    cava
+    zip
+    ntfs3g
+    brightnessctl
+    swww
+    openssl
+    bluez
+    bluez-tools
+    killall
+    libnotify
+    timer
+    gnugrep
+    bat eza fd bottom ripgrep
+    rsync
+    w3m
+    pandoc
+    hwinfo
+    pciutils
+    numbat
+
+    # Sound
+    pipewire
+    pulseaudio
+    pamixer
+
+    # core
+    home-manager
+    samba4Full
+    nixpkgs-fmt
+    cifs-utils
+    vim neovim
+    tree
+    wget
+    git
+    htop
+    unzip
+    zsh
+  ];
 
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

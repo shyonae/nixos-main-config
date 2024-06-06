@@ -15,11 +15,24 @@
     ../../user/pkgs/kitty.nix
     ../../user/pkgs/tmux.nix
     ../../user/pkgs/ranger.nix
-
-    ../../user/pkgs/home-manager-pkgs-desktop.nix
   ];
 
   home.stateVersion = "23.05";
+
+  home.packages = with pkgs; [
+    # desktop apps
+    gparted
+    floorp
+    mullvad-vpn
+    libreoffice-fresh
+
+    # other
+    wine
+    tmux
+    lazygit
+    yt-dlp
+    fastfetch
+  ];
 
   home.sessionVariables = {
     EDITOR = lib.mkForce userSettings.editor;

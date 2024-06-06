@@ -25,7 +25,7 @@
         hostname = "nixos";
         timezone = "Italy/Rome";
         locale = "en_US.UTF-8";
-        bootMode = "grub";
+        bootMode = "uefi";
         bootMountPath = "/boot";
         grubDevice = "/dev/sda"; # only used for legacy (bios) boot mode
       };
@@ -33,7 +33,7 @@
       userSettings = {
         username = "shyonae";
         description = "One sky. One destiny.";
-        email = "scionae@gmail.com";
+        email = "";
         font = "Fantasque Sans Mono"; # Selected font
         fontPkg = pkgs.fantasque-sans-mono; # Font package
         term = "kitty";
