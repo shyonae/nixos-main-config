@@ -15,6 +15,15 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
@@ -37,8 +46,8 @@
         font = "Fantasque Sans Mono"; # Selected font
         fontPkg = pkgs.fantasque-sans-mono; # Font package
         term = "kitty";
-        browser = "floorp"; # Default browser; must select one from ./user/app/browser/
-        editor = "vim"; # Default editor;
+        browser = "firefox"; # Default browser
+        editor = "vim"; # Default editor
       };
 
       pkgs = import nixpkgs {

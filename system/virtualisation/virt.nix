@@ -1,21 +1,21 @@
-{config, pkgs, userSettings, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   programs.dconf.enable = true;
-  
+
   users.users.${userSettings.username}.extraGroups = [ "libvirtd" ];
-  
+
   environment.systemPackages = with pkgs; [
     virt-manager
     virt-viewer
-    spice 
+    spice
     spice-gtk
     spice-protocol
     win-virtio
     win-spice
     gnome.adwaita-icon-theme
   ];
-  
+
   virtualisation = {
     libvirtd = {
       enable = true;

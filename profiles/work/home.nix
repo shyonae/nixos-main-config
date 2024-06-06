@@ -6,7 +6,6 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ../../user/pkgs/floorp.nix
     ../../user/pkgs/git.nix
     ../../user/pkgs/htop.nix
     ../../user/pkgs/nixvim/nixvim.nix
@@ -22,8 +21,6 @@
   home.packages = with pkgs; [
     # desktop apps
     gparted
-    floorp
-    mullvad-vpn
     libreoffice-fresh
 
     # other

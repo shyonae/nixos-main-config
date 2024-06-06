@@ -1,4 +1,4 @@
-{ userSettings, authorizedKeys ? [], ... }:
+{ ... }:
 
 {
   # Enable incoming ssh

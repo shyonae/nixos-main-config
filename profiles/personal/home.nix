@@ -7,7 +7,6 @@
 
   imports = [
     ../work/home.nix
-    ../../user/pkgs/games.nix
   ];
 
   home.packages = with pkgs; [

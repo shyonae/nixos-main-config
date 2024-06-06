@@ -7,17 +7,17 @@
       ../../system/hardware/printing.nix
       ../../system/hardware/sound.nix
       ../../system/hardware/time.nix
-      ../../system/services/firewall.nix
-      ../../system/services/garbage-collect.nix
-      ../../system/services/proxy.nix
-      ../../system/services/samba.nix
-      ../../system/services/ssh.nix
-      ../../system/services/flatpak.nix
-      ../../system/style/x11-gnome.nix
+      ../../system/services/.bundle.nix
       ../../system/style/fonts.nix
+      ../../system/virtualisation/virt.nix
+      ../../system/style/gnome.nix
     ];
 
+  mullvad.enable = false;
+
   environment.systemPackages = with pkgs; [
+    firefox
+
     # cli utilities
     file
     nix-index
@@ -31,15 +31,17 @@
     zip
     ntfs3g
     brightnessctl
-    swww
     openssl
     bluez
     bluez-tools
     killall
-    libnotify
     timer
     gnugrep
-    bat eza fd bottom ripgrep
+    bat
+    eza
+    fd
+    bottom
+    ripgrep
     rsync
     w3m
     pandoc
@@ -57,7 +59,8 @@
     samba4Full
     nixpkgs-fmt
     cifs-utils
-    vim neovim
+    vim
+    neovim
     tree
     wget
     git
@@ -86,7 +89,7 @@
   # Timezone and locale
   time.timeZone = systemSettings.timezone; # time zone
   i18n.defaultLocale = systemSettings.locale;
-    i18n.extraLocaleSettings = {
+  i18n.extraLocaleSettings = {
     LC_ADDRESS = systemSettings.locale;
     LC_IDENTIFICATION = systemSettings.locale;
     LC_MEASUREMENT = systemSettings.locale;
