@@ -8,5 +8,6 @@
       ../../system/services/mullvad.nix
       ../../system/hardware-configuration.nix
       ../../system/hardware/nvidia.nix
+      ../../system/virtualisation/virt.nix
     ];
 }
