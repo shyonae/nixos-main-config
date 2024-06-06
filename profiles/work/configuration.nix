@@ -1,71 +1,20 @@
 { lib, config, pkgs, pkgs-stable, systemSettings, userSettings, ... }:
 {
-  imports =
-    [
-      ../../system/hardware-configuration.nix
-      ../../system/hardware/.bundle.nix
-      ../../system/services/.bundle.nix
-      ../../system/style/fonts.nix
-      ../../system/style/gnome.nix
-      ../../system/virtualisation/virt.nix
-    ];
-
   # style
   gnome.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    firefox
-
-    # cli utilities
-    file
-    nix-index
-    scrot
-    ffmpeg
-    light
-    lux
-    mediainfo
-    zram-generator
-    cava
-    zip
-    ntfs3g
-    brightnessctl
-    openssl
-    bluez
-    bluez-tools
-    killall
-    timer
-    gnugrep
-    bat
-    eza
-    fd
-    bottom
-    ripgrep
-    rsync
-    w3m
-    pandoc
-    hwinfo
-    pciutils
-    numbat
-
-    # Sound
-    pipewire
-    pulseaudio
-    pamixer
-
-    # core
-    home-manager
-    samba4Full
-    nixpkgs-fmt
-    cifs-utils
-    vim
-    neovim
-    tree
-    wget
-    git
-    htop
-    unzip
-    zsh
-  ];
+  fonts.enable = true;
+  # services
+  bluetooth.enable = true;
+  firewall.enable = true;
+  garbageCollect.enable = true;
+  samba.enable = true;
+  sound.enable = true;
+  ssh.enable = true;
+  timesyncd.enable = true;
+  virt.enable = true;
+  # pkgs
+  pkgsOther.enable = true;
+  pkgsCore.enable = true;
 
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -109,7 +58,6 @@
       isNormalUser = true;
       description = userSettings.description;
       extraGroups = [ "networkmanager" "wheel" "input" "dialout" ];
-      packages = [ ];
       uid = 1000;
     };
   };

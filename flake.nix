@@ -69,6 +69,8 @@
       nixosConfigurations.${systemSettings.hostname} = lib.nixosSystem {
         modules = [
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+          ./system/modules/.bundle.nix
+          ./system/hardware-configuration.nix
         ];
         specialArgs = {
           inherit inputs pkgs-stable userSettings systemSettings;
@@ -79,6 +81,7 @@
         inherit pkgs;
         modules = [
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+          ./user/modules/.bundle.nix
           inputs.nixvim.homeManagerModules.nixvim
         ];
         extraSpecialArgs = {

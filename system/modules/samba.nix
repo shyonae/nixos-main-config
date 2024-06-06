@@ -1,5 +1,10 @@
-{ config, lib, pkgs, ... }: {
-  config = {
+{ lib, config, pkgs, pkgs-stable, ... }:
+{
+  options = {
+    samba.enable = lib.mkEnableOption "enables samba";
+  };
+
+  config = lib.mkIf config.samba.enable {
     services = {
       # Network shares
       samba = {
