@@ -1,19 +1,17 @@
-{ pkgs, pkgs-stable, systemSettings, userSettings, ... }:
+{ lib, config, pkgs, pkgs-stable, systemSettings, userSettings, ... }:
 {
   imports =
     [
       ../../system/hardware-configuration.nix
-      ../../system/hardware/bluetooth.nix
-      ../../system/hardware/printing.nix
-      ../../system/hardware/sound.nix
-      ../../system/hardware/time.nix
+      ../../system/hardware/.bundle.nix
       ../../system/services/.bundle.nix
       ../../system/style/fonts.nix
-      ../../system/virtualisation/virt.nix
       ../../system/style/gnome.nix
+      ../../system/virtualisation/virt.nix
     ];
 
-  mullvad.enable = false;
+  # style
+  gnome.enable = true;
 
   environment.systemPackages = with pkgs; [
     firefox

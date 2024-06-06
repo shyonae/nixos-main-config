@@ -9,5 +9,6 @@
       ../../system/hardware-configuration.nix
     ];
 
-    mullvad.enable = lib.mkDefault true;
+  mullvad.enable = true;
+  nvidia.enable = true;
 }

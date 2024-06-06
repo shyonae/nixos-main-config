@@ -1,14 +1,23 @@
-{ services, pkgs, pkgs-stable, systemSettings, userSettings, ... }:
+{ lib, config, ... }:
+
 {
-  services.xserver = {
-    # Enable Gnome
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    
-    xkb.layout = "us";
-    xkb.variant = "";
+  options = {
+    gnome.enable = lib.mkEnableOption "enables gnome";
   };
 
-  services.displayManager.defaultSession = "gnome";
+  config = lib.mkIf config.gnome.enable {
+    services.xserver.enable = true;
+
+    # Enable the GNOME Desktop Environment.
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.desktopManager.gnome.enable = true;
+
+    # Configure keymap in X11
+    services.xserver = {
+      xkb.layout = "us";
+      xkb.variant = "";
+    };
+
+    services.displayManager.defaultSession = "gnome";
+  };
 }

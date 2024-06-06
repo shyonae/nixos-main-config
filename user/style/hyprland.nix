@@ -28,7 +28,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    
+
     systemd.variables = [ "--all" ];
 
     plugins = with plugins."${systemSettings.system}"; [

@@ -1,6 +1,12 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-  boot.consoleLogLevel = 0;
+  options = {
+    kernel.enable = lib.mkEnableOption "enables kernel options";
+  };
+
+  config = lib.mkIf config.kernel.enable {
+    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    boot.consoleLogLevel = 0;
+  };
 }
