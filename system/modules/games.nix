@@ -6,12 +6,23 @@
 
   config = lib.mkIf config.games.enable {
     environment.systemPackages = with pkgs; [
-      steam
       osu-lazer-bin
       clonehero
     ];
 
-    hardware.opengl.driSupport32Bit = true;
-    programs.steam.enable = true;
+    programs.gamescope.enable = true;
+
+    programs.steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      gamescopeSession.enable = true;
+      package = pkgs.steam.override {
+        extraPkgs = pkgs: with pkgs; [
+          libkrb5
+          keyutils
+        ];
+      };
+    };
   };
 }

@@ -6,7 +6,9 @@
 
   config = lib.mkIf config.pkgsOther.enable {
     environment.systemPackages = with pkgs; [
-      firefox
+      bottles-unwrapped
+      floorp
+      # firefox
       file
       nix-index
       scrot

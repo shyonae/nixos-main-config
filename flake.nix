@@ -46,7 +46,7 @@
         font = "Fantasque Sans Mono"; # Selected font
         fontPkg = pkgs.fantasque-sans-mono; # Font package
         term = "kitty";
-        browser = "firefox"; # Default browser
+        browser = "browser"; # Default browser
         editor = "vim"; # Default editor
       };
 
