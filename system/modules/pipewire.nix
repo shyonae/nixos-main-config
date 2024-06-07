@@ -9,6 +9,8 @@
     # has to be set to avoid conflicts
     hardware.pulseaudio.enable = false;
 
+    security.rtkit.enable = true;
+
     services.pipewire = {
       enable = true;
       audio.enable = true;

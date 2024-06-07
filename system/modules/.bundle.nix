@@ -12,6 +12,7 @@
       ./mullvad.nix
       ./nvidia.nix
       ./pipewire.nix
+      ./pulseaudio.nix
       ./printing.nix
       ./pkgs-core.nix
       ./pkgs-other.nix
