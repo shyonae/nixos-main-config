@@ -39,6 +39,15 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    base16 = {
+      url = "github:SenchoPens/base16.nix";
+    };
+
+    tt-schemes = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
@@ -90,6 +99,7 @@
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
           ./system/modules/.bundle.nix
           ./system/hardware-configuration.nix
+          inputs.base16.nixosModule
         ];
         specialArgs = {
           inherit inputs pkgs-stable userSettings systemSettings;
