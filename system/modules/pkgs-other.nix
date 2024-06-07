@@ -9,6 +9,7 @@
       bottles-unwrapped
       floorp
       # firefox
+      base16-shell-preview
       file
       nix-index
       scrot

@@ -5,22 +5,23 @@
       ./bluetooth.nix
       ./firewall.nix
       ./flatpak.nix
-      ./fonts.nix
       ./games.nix
       ./garbage-collect.nix
       ./gnome.nix
       ./kernel.nix
       ./mullvad.nix
       ./nvidia.nix
+      ./pipewire.nix
       ./printing.nix
+      ./pkgs-core.nix
+      ./pkgs-other.nix
       ./proxy.nix
-      ./ssh.nix
       ./samba.nix
+      ./ssh.nix
       ./systemd.nix
       ./time.nix
       ./virt.nix
+      ./virtualbox.nix
       ./xdg.nix
-      ./pkgs-core.nix
-      ./pkgs-other.nix
     ];
 }

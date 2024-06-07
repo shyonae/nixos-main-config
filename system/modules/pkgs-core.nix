@@ -8,7 +8,6 @@
     environment.systemPackages = with pkgs; [
       hwinfo
       pipewire
-      pulseaudio
       pamixer
       home-manager
       samba4Full

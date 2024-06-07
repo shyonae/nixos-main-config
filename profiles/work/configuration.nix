@@ -2,16 +2,16 @@
 {
   # style
   gnome.enable = true;
-  fonts.enable = true;
   # services
   bluetooth.enable = true;
   firewall.enable = true;
   garbageCollect.enable = true;
   samba.enable = true;
-  sound.enable = true;
+  pipewire.enable = true;
   ssh.enable = true;
   timesyncd.enable = true;
   virt.enable = true;
+  virtualbox.enable = true;
   # pkgs
   pkgsOther.enable = true;
   pkgsCore.enable = true;
@@ -57,7 +57,7 @@
     users.${userSettings.username} = {
       isNormalUser = true;
       description = userSettings.description;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" ];
+      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "audio" ];
       uid = 1000;
     };
   };

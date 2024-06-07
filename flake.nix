@@ -24,6 +24,21 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.home-manager.follows = "home-manager";
+    };
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
@@ -32,7 +47,7 @@
         system = "x86_64-linux";
         profile = "personal";
         hostname = "nixos";
-        timezone = "Italy/Rome";
+        timezone = "Europe/Rome";
         locale = "en_US.UTF-8";
         bootMode = "uefi";
         bootMountPath = "/boot";
@@ -43,11 +58,15 @@
         username = "shyonae";
         description = "One sky. One destiny.";
         email = "";
-        font = "Fantasque Sans Mono"; # Selected font
+        fontName = "Fantasque Sans Mono"; # Selected font
         fontPkg = pkgs.fantasque-sans-mono; # Font package
         term = "kitty";
         browser = "browser"; # Default browser
         editor = "vim"; # Default editor
+        polarity = "dark"; # stylix polarity
+        cursorName = "Bibata-Modern-Amber";
+        cursorSize = 20;
+        base16SchemeName = "3024";
       };
 
       pkgs = import nixpkgs {
@@ -83,6 +102,7 @@
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
           ./user/modules/.bundle.nix
           inputs.nixvim.homeManagerModules.nixvim
+          inputs.stylix.homeManagerModules.stylix
         ];
         extraSpecialArgs = {
           inherit inputs pkgs-stable userSettings systemSettings;

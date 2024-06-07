@@ -7,11 +7,13 @@
       ./hyprland.nix
       ./kitty.nix
       ./nixvim.nix
-      ./ranger.nix
-      ./tmux.nix
-      ./vim.nix
-      ./zsh.nix
       ./pkgs-core.nix
       ./pkgs-other.nix
+      ./ranger.nix
+      ./stylix.nix
+      ./tmux.nix
+      ./vim.nix
+      ./virt.nix
+      ./zsh.nix
     ];
 }

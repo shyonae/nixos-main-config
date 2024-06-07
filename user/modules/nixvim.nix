@@ -12,6 +12,7 @@
   };
 
   config = lib.mkIf config.nixvim.enable {
+    stylix.targets.nixvim.enable = true;
     programs.nixvim = {
       enable = true;
 
