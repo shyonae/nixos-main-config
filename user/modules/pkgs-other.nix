@@ -9,7 +9,6 @@
       telegram-desktop
       kitty
       vscode
-      ranger
       discord
       obsidian
       bitwarden

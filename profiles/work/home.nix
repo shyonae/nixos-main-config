@@ -12,7 +12,6 @@
   hyprland.enable = lib.mkDefault false; # IF SET TO TRUE, REMOVE DEFAULT AND DISABLE GNOME!
   kitty.enable = true;
   nixvim.enable = true;
-  ranger.enable = true;
   tmux.enable = true;
   vim.enable = true;
   zsh.enable = true;

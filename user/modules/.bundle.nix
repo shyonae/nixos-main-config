@@ -2,6 +2,7 @@
 {
   imports =
     [
+      ./custom-scripts.nix
       ./git.nix
       ./htop.nix
       ./hyprland.nix
@@ -9,7 +10,6 @@
       ./nixvim.nix
       ./pkgs-core.nix
       ./pkgs-other.nix
-      ./ranger.nix
       ./stylix.nix
       ./tmux.nix
       ./vim.nix

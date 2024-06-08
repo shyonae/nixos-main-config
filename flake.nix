@@ -18,6 +18,7 @@
         username = "shyonae";
         description = "One sky. One destiny.";
         email = "";
+        nixMainFlakeFolder = "$HOME/nix";
         fontName = "Fantasque Sans Mono"; # Selected font
         fontPkg = pkgs.fantasque-sans-mono; # Font package
         term = "kitty";

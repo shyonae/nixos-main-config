@@ -5,4 +5,5 @@
   ];
 
   homePkgsOther.enable = true;
+  customScripts.enable = true;
 }

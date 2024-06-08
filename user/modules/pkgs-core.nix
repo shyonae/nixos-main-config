@@ -1,4 +1,4 @@
-{ lib, config, pkgs, pkgs-stable, ... }:
+{ lib, config, pkgs, pkgs-stable, userSettings, ... }:
 {
   options = {
     homePkgsCore.enable = lib.mkEnableOption "home core packages";
