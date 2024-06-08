@@ -18,7 +18,7 @@
           default = pkgs.mkShell {
 
             shellHook = ''
-              echo "Maven development shell" | ${pkgs.lolcat}/bin/lolcat
+              echo "MAVEN DEV SHELL" | ${pkgs.lolcat}/bin/lolcat
             '';
 
             packages = with pkgs; [

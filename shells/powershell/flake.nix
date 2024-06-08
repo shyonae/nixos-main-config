@@ -18,7 +18,7 @@
           default = pkgs.mkShell {
 
             shellHook = ''
-              echo "Powershell development shell" | ${pkgs.lolcat}/bin/lolcat
+              echo "POWERSHELL DEV SHELL" | ${pkgs.lolcat}/bin/lolcat
             '';
 
             packages = with pkgs; [

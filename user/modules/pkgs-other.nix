@@ -12,7 +12,7 @@
       discord
       obsidian
       bitwarden
-      syncthing
+      prusa-slicer
     ];
   };
 }

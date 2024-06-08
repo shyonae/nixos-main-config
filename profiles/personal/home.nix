@@ -6,4 +6,5 @@
 
   homePkgsOther.enable = true;
   customScripts.enable = true;
+  syncthing.enable = true;
 }
