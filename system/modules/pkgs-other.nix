@@ -9,9 +9,9 @@
       bottles-unwrapped
       floorp
       # firefox
-      base16-shell-preview
+      # base16-shell-preview
+      # basez # base16 binary
       file
-      nix-index
       scrot
       ffmpeg
       light

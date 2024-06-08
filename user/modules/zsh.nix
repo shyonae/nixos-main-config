@@ -24,6 +24,8 @@
           se = "sudoedit";
           v = "nvim";
           ff = "fastfetch";
+          dev-mvn = "nix develop ${flakeDir}/shells/maven/flake.nix -c zsh";
+          dev-pwsh = "nix develop ${flakeDir}/shells/powershell/flake.nix -c zsh";
         };
 
       oh-my-zsh = {

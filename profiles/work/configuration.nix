@@ -16,6 +16,9 @@
   pkgsOther.enable = true;
   pkgsCore.enable = true;
 
+  # for nix-index-database
+  programs.command-not-found.enable = false;
+
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
