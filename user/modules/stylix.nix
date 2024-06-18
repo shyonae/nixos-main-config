@@ -1,10 +1,10 @@
 { lib, config, pkgs, userSettings, ... }:
 {
   options = {
-    stylix.enable = lib.mkEnableOption "enables stylix";
+    stylixPkg.enable = lib.mkEnableOption "enables stylix";
   };
 
-  config = lib.mkIf config.stylix.enable {
+  config = lib.mkIf config.stylixPkg.enable {
 
     home.packages = with pkgs; [
       base16-schemes
@@ -12,6 +12,7 @@
     ];
 
     stylix = {
+      enable = true;
       targets.gtk.enable = true;
       targets.lazygit.enable = true;
       targets.vscode.enable = true;

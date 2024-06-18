@@ -10,6 +10,7 @@
       ./gnome.nix
       ./kernel.nix
       ./mullvad.nix
+      ./nix-ld.nix
       ./nvidia.nix
       ./pipewire.nix
       ./pulseaudio.nix

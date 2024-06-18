@@ -23,7 +23,7 @@
 
             packages = with pkgs; [
               maven
-              # openjdk11
+              openjdk11
             ];
           };
         });

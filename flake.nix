@@ -22,7 +22,7 @@
         fontName = "Fantasque Sans Mono"; # Selected font
         fontPkg = pkgs.fantasque-sans-mono; # Font package
         term = "kitty";
-        browser = "browser"; # Default browser
+        browser = "floorp"; # Default browser
         editor = "vim"; # Default editor
         polarity = "dark"; # stylix polarity
         cursorName = "Bibata-Modern-Amber";
@@ -52,6 +52,7 @@
           ./system/modules/.bundle.nix
           ./system/hardware-configuration.nix
           inputs.base16.nixosModule
+          inputs.nix-ld.nixosModules.nix-ld
           inputs.nix-index-database.nixosModules.nix-index
         ];
         specialArgs = {
@@ -123,6 +124,11 @@
     tt-schemes = {
       url = "github:tinted-theming/schemes";
       flake = false;
+    };
+
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

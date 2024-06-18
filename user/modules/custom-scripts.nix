@@ -8,7 +8,8 @@
     home.packages = with pkgs; [
       # custom scripts
       (import ../../scripts/sync-user.nix { inherit pkgs userSettings; })
-      (import ../../scripts/sync-sys.nix { inherit pkgs userSettings; })
+      (import ../../scripts/upgrade-system.nix { inherit pkgs userSettings; })
+      (import ../../scripts/sync-system.nix { inherit pkgs userSettings; })
       (import ../../scripts/sync-both.nix { inherit pkgs userSettings; })
       (import ../../scripts/flake-upd-all.nix { inherit pkgs userSettings; })
       (import ../../scripts/flake-upd.nix { inherit pkgs userSettings; })

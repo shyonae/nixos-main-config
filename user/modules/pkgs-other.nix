@@ -13,6 +13,7 @@
       obsidian
       bitwarden
       prusa-slicer
+      media-downloader
     ];
   };
 }

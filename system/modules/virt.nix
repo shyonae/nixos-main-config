@@ -14,6 +14,7 @@
     environment.systemPackages = with pkgs; [
       virt-viewer
       spice
+      spice-vdagent
       spice-gtk
       spice-protocol
       win-virtio
@@ -32,6 +33,8 @@
       };
       spiceUSBRedirection.enable = true;
     };
+
+    services.qemuGuest.enable = true;
     services.spice-vdagentd.enable = true;
   };
 }

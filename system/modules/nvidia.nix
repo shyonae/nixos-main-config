@@ -6,6 +6,8 @@
 
   config = lib.mkIf config.nvidia.enable {
 
+    nixpkgs.config.nvidia.acceptLicense = true;
+
     hardware = {
       opengl = {
         enable = true;

@@ -14,7 +14,7 @@
       ./syncthing.nix
       ./tmux.nix
       ./vim.nix
-      ./virt.nix
+      ./virtConfigs.nix
       ./zsh.nix
     ];
 }

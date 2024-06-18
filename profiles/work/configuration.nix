@@ -11,7 +11,6 @@
   ssh.enable = true;
   timesyncd.enable = true;
   virt.enable = true;
-  virtualbox.enable = true;
   # pkgs
   pkgsOther.enable = true;
   pkgsCore.enable = true;

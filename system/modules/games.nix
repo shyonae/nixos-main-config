@@ -8,6 +8,8 @@
     environment.systemPackages = with pkgs; [
       osu-lazer-bin
       clonehero
+      ludusavi
+      lutris
     ];
 
     programs.gamescope.enable = true;

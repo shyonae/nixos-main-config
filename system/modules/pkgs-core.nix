@@ -21,6 +21,7 @@
       htop
       unzip
       zsh
+      lshw
     ];
   };
 }
