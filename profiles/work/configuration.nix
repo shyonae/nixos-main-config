@@ -3,6 +3,7 @@
   # style
   gnome.enable = true;
   # services
+  adb.enable = true;
   bluetooth.enable = true;
   firewall.enable = true;
   garbageCollect.enable = true;
@@ -11,6 +12,7 @@
   ssh.enable = true;
   timesyncd.enable = true;
   virt.enable = true;
+  flatpak.enable = true;
   # pkgs
   pkgsOther.enable = true;
   pkgsCore.enable = true;

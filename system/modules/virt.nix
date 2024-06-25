@@ -13,6 +13,7 @@
 
     environment.systemPackages = with pkgs; [
       virt-viewer
+      virtiofsd
       spice
       spice-vdagent
       spice-gtk

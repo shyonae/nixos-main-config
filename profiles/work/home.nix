@@ -27,5 +27,6 @@
     EDITOR = lib.mkForce userSettings.editor;
     TERM = userSettings.term;
     BROWSER = userSettings.browser;
+    MOZ_ENABLE_WAYLAND = 0;
   };
 }	

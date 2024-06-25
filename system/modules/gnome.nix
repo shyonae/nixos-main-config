@@ -6,11 +6,16 @@
   };
 
   config = lib.mkIf config.gnome.enable {
-    services.xserver.enable = true;
+    services.xserver = {
+      enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
 
-    # Enable the GNOME Desktop Environment.
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+      # Enable the GNOME Desktop Environment.
+      desktopManager.gnome.enable = true;
+    };
 
     # Configure keymap in X11
     services.xserver = {
@@ -18,6 +23,6 @@
       xkb.variant = "";
     };
 
-    services.displayManager.defaultSession = "gnome";
+    services.displayManager.defaultSession = "gnome-xorg";
   };
 }

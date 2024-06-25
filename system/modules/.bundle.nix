@@ -2,7 +2,9 @@
 {
   imports =
     [
+      ./adb.nix
       ./bluetooth.nix
+      ./docker.nix
       ./firewall.nix
       ./flatpak.nix
       ./games.nix
@@ -10,6 +12,7 @@
       ./gnome.nix
       ./kernel.nix
       ./mullvad.nix
+      ./nfs.nix
       ./nix-ld.nix
       ./nvidia.nix
       ./pipewire.nix

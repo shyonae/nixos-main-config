@@ -10,6 +10,9 @@
         bottles-unwrapped
         # base16-shell-preview
         # basez # base16 binary
+        cage # wayland wrapper
+        google-chrome
+        motrix
         file
         scrot
         ffmpeg
@@ -37,6 +40,8 @@
         pandoc
         pciutils
         numbat
+        # emulation
+        genymotion
       ])
 
       ++
