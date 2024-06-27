@@ -50,7 +50,7 @@
         modules = [
           ./profiles/${systemSettings.profile}/configuration.nix
           ./system/modules/.bundle.nix
-          ./system/hardware-configuration.nix
+          ../hardware-configuration.nix
           inputs.base16.nixosModule
           inputs.nix-ld.nixosModules.nix-ld
           inputs.nix-index-database.nixosModules.nix-index
