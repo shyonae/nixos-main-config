@@ -5,7 +5,7 @@
     let
       systemSettings = {
         system = "x86_64-linux";
-        profile = "personal";
+        profile = "homelab";
         hostname = "nixos";
         timezone = "Europe/Rome";
         locale = "en_US.UTF-8";
@@ -50,7 +50,7 @@
         modules = [
           ./profiles/${systemSettings.profile}/configuration.nix
           ./system/modules/.bundle.nix
-          ../hardware-configuration.nix
+          ./system/hardware-configuration.nix
           inputs.base16.nixosModule
           inputs.nix-ld.nixosModules.nix-ld
           inputs.nix-index-database.nixosModules.nix-index

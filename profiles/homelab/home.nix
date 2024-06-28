@@ -4,8 +4,6 @@
   home.homeDirectory = "/home/" + userSettings.username;
 
   programs.home-manager.enable = true;
-  # style
-  stylixPkg.enable = true;
   # others
   git.enable = true;
   htop.enable = true;

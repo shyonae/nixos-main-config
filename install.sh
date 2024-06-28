@@ -8,7 +8,7 @@ if [ $# -gt 0 ]
 fi
 
 # Generate hardware config for new system
-sudo nixos-generate-config --show-hardware-config > $HOME/hardware-configuration.nix
+sudo nixos-generate-config --show-hardware-config > $SCRIPT_DIR/system/hardware-configuration.nix
 
 # Check if uefi or bios
 if [ -d /sys/firmware/efi/efivars ]; then

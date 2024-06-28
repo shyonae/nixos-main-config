@@ -8,8 +8,8 @@
   samba.enable = true;
   nfs.enable = true;
   ssh.enable = true;
+  docker.enable = true;
   timesyncd.enable = true;
-  flatpak.enable = true;
   # pkgs
   pkgsOther.enable = true;
   pkgsCore.enable = true;
@@ -65,7 +65,7 @@
 
   fileSystems."/nfs/backups" = {
     device = "192.168.1.12:/backups";
-    fsType = "nfs";
+    fsType = "nfs4";
     options = [ "auto" "nofail" "noatime" "nolock" "intr" "tcp" "actimeo=1800" ];
   };
 
