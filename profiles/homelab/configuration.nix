@@ -23,6 +23,7 @@
   bluetooth.enable = true;
   firewall.enable = true;
   garbageCollect.enable = true;
+  docker.enable = true;
   nfs.enable = true;
   samba.enable = true;
   ssh.enable = true;
