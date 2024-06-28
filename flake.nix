@@ -5,7 +5,7 @@
     let
       systemSettings = {
         system = "x86_64-linux";
-        profile = "homelab";
+        profile = "personal";
         hostname = "nixos";
         timezone = "Europe/Rome";
         locale = "en_US.UTF-8";

@@ -15,7 +15,6 @@
         motrix
         file
         scrot
-        ffmpeg
         light
         lux
         mediainfo

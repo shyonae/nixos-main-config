@@ -22,6 +22,7 @@
       unzip
       zsh
       lshw
+      ffmpeg
     ];
   };
 }
