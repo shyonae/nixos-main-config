@@ -11,6 +11,10 @@
         # base16-shell-preview
         # basez # base16 binary
         cage # wayland wrapper
+        woeusb-ng
+        caligula
+        # syslinux-unstable
+        libpcap
         google-chrome
         motrix
         file
