@@ -25,7 +25,6 @@
           v = "nvim";
           ff = "fastfetch";
           dev-mvn = "nix develop ${flakeDir}/shells/maven/flake.nix -c zsh";
-          dev-rust = "nix develop ${flakeDir}/shells/rust/flake.nix -c zsh";
           dev-pwsh = "nix develop ${flakeDir}/shells/powershell/flake.nix -c zsh";
         };
 

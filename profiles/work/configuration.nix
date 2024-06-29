@@ -9,6 +9,7 @@
   garbageCollect.enable = true;
   samba.enable = true;
   pipewire.enable = true;
+  pulseaudio.enable = lib.mkDefault false;
   ssh.enable = true;
   timesyncd.enable = true;
   virt.enable = true;

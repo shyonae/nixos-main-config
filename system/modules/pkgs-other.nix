@@ -14,7 +14,6 @@
         woeusb-ng
         caligula
         # syslinux-unstable
-        libpcap
         google-chrome
         motrix
         file
