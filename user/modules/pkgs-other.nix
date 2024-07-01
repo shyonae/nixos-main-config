@@ -15,6 +15,7 @@
         withVencord = true;
       })
       vesktop
+      scrcpy
       obsidian
       bitwarden
       prusa-slicer

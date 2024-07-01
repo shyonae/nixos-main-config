@@ -19,6 +19,11 @@
     options = [ "uid=1000" "gid=100" "credentials=/home/shyonae/.smb" "iocharset=utf8" "vers=3.0" "noperm" ];
   };
 
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 12 * 1024;
+  }];
+
   gnome.enable = lib.mkDefault false;
   bluetooth.enable = true;
   firewall.enable = true;
@@ -31,11 +36,11 @@
   virt.enable = true;
   pkgsCore.enable = true;
 
-    environment.systemPackages = with pkgs; [
-      lazydocker
-      lazygit
-      fastfetch
-    ];
+  environment.systemPackages = with pkgs; [
+    lazydocker
+    lazygit
+    fastfetch
+  ];
 
   # for nix-index-database
   programs.command-not-found.enable = false;
