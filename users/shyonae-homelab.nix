@@ -8,7 +8,6 @@ let
     fontName = "Fantasque Sans Mono"; # Selected font
     fontPkg = pkgs.fantasque-sans-mono; # Font package
     term = "kitty";
-    browser = "floorp"; # Default browser
     editor = "vim"; # Default editor
     polarity = "light"; # stylix polarity
     cursorName = "Bibata-Modern-Amber";
@@ -17,13 +16,14 @@ let
   };
 in
 {
+
   users = {
     defaultUserShell = pkgs.zsh;
 
     users.${userSettings.username} = {
       isNormalUser = true;
       description = userSettings.description;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "audio" "adbusers" "docker" "libvirtd" ];
+      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "audio" "docker" ];
       uid = 1000;
     };
   };
@@ -41,8 +41,7 @@ in
         inputs.stylix.homeManagerModules.stylix
       ];
 
-      homePkgsOther.enable = true;
-      syncthing.enable = true;
+      homePkgsCore.enable = lib.mkDefault false;
 
       home = {
         username = userSettings.username;
@@ -52,14 +51,8 @@ in
         sessionVariables = {
           EDITOR = lib.mkForce userSettings.editor;
           TERM = userSettings.term;
-          BROWSER = userSettings.browser;
-          MOZ_ENABLE_WAYLAND = 0;
-          STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/${userSettings.username}/.steam/root/compatibilitytools.d";
         };
       };
     };
-
   };
-
-
 }

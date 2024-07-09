@@ -1,4 +1,4 @@
-{ lib, config, pkgs, pkgs-stable, systemSettings, ... }:
+{ lib, config, pkgs, pkgs-stable, ... }:
 {
   options = {
     pkgsOther.enable = lib.mkEnableOption "other packages";

@@ -1,4 +1,7 @@
 { lib, config, ... }:
+let
+  nixMainFlakeFolder = "$HOME/nix";
+in
 {
   options = {
     zsh.enable = lib.mkEnableOption "enables zsh";
@@ -27,6 +30,9 @@
           dev-mvn = "nix develop ${flakeDir}/shells/maven/flake.nix -c zsh";
           dev-python = "nix develop ${flakeDir}/shells/python/flake.nix -c zsh";
           dev-pwsh = "nix develop ${flakeDir}/shells/powershell/flake.nix -c zsh";
+          sync-system = "sudo nixos-rebuild switch --flake ${nixMainFlakeFolder}#$(hostname)";
+          flake-update = "sudo nix flake update ${nixMainFlakeFolder}#$(hostname)";
+          system-upgrade = "sudo nixos-rebuild switch --flake ${nixMainFlakeFolder}#$(hostname) --upgrade";
         };
 
       oh-my-zsh = {

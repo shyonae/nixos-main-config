@@ -25,7 +25,6 @@
           home-manager = {
             useUserPackages = true;
             useGlobalPkgs = true;
-            extraSpecialArgs = specialArgs;
           };
         }
       ];
@@ -33,13 +32,14 @@
     in
     {
       nixosConfigurations = {
+
         main_pc = nixpkgs.lib.nixosSystem {
 
           inherit specialArgs system;
 
           modules = shared-modules ++ [
             ./hosts/main_pc.nix
-            ./system/modules/.bundle.nix
+            ./modules/system/.bundle.nix
             ./users/shyonae.nix
             inputs.base16.nixosModule
             inputs.nix-ld.nixosModules.nix-ld
@@ -52,6 +52,21 @@
             }
           ];
         };
+
+        homelab_main_hp_sff = nixpkgs.lib.nixosSystem {
+
+          inherit specialArgs system;
+
+          modules = shared-modules ++ [
+            ./hosts/main_pc.nix
+            ./modules/system/.bundle.nix
+            ./users/shyonae-homelab.nix
+            inputs.base16.nixosModule
+            inputs.nix-ld.nixosModules.nix-ld
+            inputs.nix-index-database.nixosModules.nix-index
+          ];
+        };
+
       };
     };
 
@@ -66,11 +81,6 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
