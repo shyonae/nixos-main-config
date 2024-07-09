@@ -1,4 +1,4 @@
-{ lib, config, pkgs, pkgs-stable, systemSettings, userSettings, ... }:
+{ lib, config, pkgs, pkgs-stable, systemSettings, ... }:
 {
   options = {
     pkgsOther.enable = lib.mkEnableOption "other packages";
@@ -42,6 +42,7 @@
         pandoc
         pciutils
         numbat
+        vlc
         # emulation
         genymotion
       ])

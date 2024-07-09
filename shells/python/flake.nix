@@ -24,6 +24,7 @@
             packages = with pkgs; [
               python311Full
               linuxHeaders
+              conda
             ];
 
             C_INCLUDE_PATH = "${pkgs.linuxHeaders}/include";

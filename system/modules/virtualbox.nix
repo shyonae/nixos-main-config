@@ -1,4 +1,4 @@
-{ lib, config, pkgs, userSettings, ... }:
+{ lib, config, pkgs, ... }:
 {
   options = {
     virtualbox.enable = lib.mkEnableOption "enables virtualbox";

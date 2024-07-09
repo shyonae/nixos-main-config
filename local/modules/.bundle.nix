@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ ... }:
 {
   imports =
     [
@@ -14,7 +14,6 @@
       ./syncthing.nix
       ./tmux.nix
       ./vim.nix
-      ./virtConfigs.nix
       ./zsh.nix
     ];
 }

@@ -1,4 +1,4 @@
-{ lib, config, pkgs, pkgs-stable, userSettings, ... }:
+{ lib, config, pkgs, pkgs-stable, ... }:
 {
   options = {
     games.enable = lib.mkEnableOption "enables games";
@@ -33,11 +33,6 @@
           # glxinfo
         ];
       };
-    };
-
-    # to use custom protonup versions
-    environment.sessionVariables = {
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/${userSettings.username}/.steam/root/compatibilitytools.d";
     };
   };
 }

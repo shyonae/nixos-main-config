@@ -24,6 +24,17 @@
     size = 12 * 1024;
   }];
 
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 0;
+  };
+
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "*/5 * * * *      root    sync; echo 1 > /proc/sys/vm/drop_caches"
+    ];
+  };
+
   gnome.enable = lib.mkDefault false;
   bluetooth.enable = true;
   firewall.enable = true;
@@ -33,13 +44,14 @@
   samba.enable = true;
   ssh.enable = true;
   timesyncd.enable = true;
-  virt.enable = true;
   pkgsCore.enable = true;
 
   environment.systemPackages = with pkgs; [
     lazydocker
     lazygit
     fastfetch
+    regctl
+    cron
   ];
 
   # for nix-index-database
@@ -78,18 +90,6 @@
   };
 
   programs.zsh.enable = true;
-
-  # User account
-  users = {
-    defaultUserShell = pkgs.zsh;
-
-    users.${userSettings.username} = {
-      isNormalUser = true;
-      description = userSettings.description;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "audio" ];
-      uid = 1000;
-    };
-  };
 
   services.getty.autologinUser = userSettings.username;
 

@@ -9,11 +9,8 @@
     nixpkgs.config.nvidia.acceptLicense = true;
 
     hardware = {
-      opengl = {
+      graphics = {
         enable = true;
-        # Vulkan
-        driSupport = true;
-        driSupport32Bit = true;
       };
 
       enableRedistributableFirmware = true;

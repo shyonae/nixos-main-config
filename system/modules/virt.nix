@@ -7,8 +7,6 @@
   config = lib.mkIf config.virt.enable {
     programs.dconf.enable = true;
 
-    users.users.${userSettings.username}.extraGroups = [ "libvirtd" ];
-
     programs.virt-manager.enable = true;
 
     environment.systemPackages = with pkgs; [

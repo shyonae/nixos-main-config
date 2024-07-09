@@ -1,4 +1,4 @@
-{ lib, config, pkgs, pkgs-stable, systemSettings, userSettings, ... }:
+{ lib, config, pkgs, pkgs-stable, systemSettings, ... }:
 {
   options = {
     pkgsCore.enable = lib.mkEnableOption "core packages";

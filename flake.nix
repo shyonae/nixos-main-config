@@ -3,84 +3,54 @@
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, aagl, ... }@inputs:
     let
-      systemSettings = {
-        system = "x86_64-linux";
-        profile = "personal";
-        hostname = "nixos";
-        timezone = "Europe/Rome";
-        locale = "en_US.UTF-8";
-        bootMode = "uefi";
-        bootMountPath = "/boot";
-        grubDevice = "/dev/sda"; # only used for legacy (bios) boot mode
-      };
-
-      userSettings = {
-        username = "shyonae";
-        description = "One sky. One destiny.";
-        email = "";
-        nixMainFlakeFolder = "$HOME/nix";
-        fontName = "Fantasque Sans Mono"; # Selected font
-        fontPkg = pkgs.fantasque-sans-mono; # Font package
-        term = "kitty";
-        browser = "floorp"; # Default browser
-        editor = "vim"; # Default editor
-        polarity = "dark"; # stylix polarity
-        cursorName = "Bibata-Modern-Amber";
-        cursorSize = 20;
-        base16SchemeName = "gigavolt";
-      };
+      system = "x86_64-linux";
 
       pkgs = import nixpkgs {
-        system = systemSettings.system;
+        system = system;
         config.allowUnfree = true;
       };
 
       pkgs-stable = import nixpkgs-stable {
-        system = systemSettings.system;
+        system = system;
         config.allowUnfree = true;
       };
 
-      username = userSettings.username;
-      hostname = systemSettings.hostname;
-      lib = nixpkgs.lib;
-      hlib = home-manager.lib;
-    in
-    {
-      nixosConfigurations.${systemSettings.hostname} = lib.nixosSystem {
-        modules = [
-          ./profiles/${systemSettings.profile}/configuration.nix
-          ./system/modules/.bundle.nix
-          ./system/hardware-configuration.nix
-          inputs.base16.nixosModule
-          inputs.nix-ld.nixosModules.nix-ld
-          inputs.nix-index-database.nixosModules.nix-index
-
-          {
-            imports = [ aagl.nixosModules.default ];
-            nix.settings = aagl.nixConfig; # Set up Cachix
-            programs.anime-game-launcher.enable = true; # Adds launcher and /etc/hosts rules
-            programs.honkers-railway-launcher.enable = true;
-            # programs.anime-games-launcher.enable = true;
-            # programs.anime-borb-launcher.enable = true;
-            # programs.honkers-launcher.enable = true; # honkai impact 3rd
-          }
-
-        ];
-        specialArgs = {
-          inherit inputs pkgs-stable userSettings systemSettings;
-        };
+      specialArgs = inputs // {
+        inherit pkgs-stable pkgs inputs;
       };
 
-      homeConfigurations.${userSettings.username} = hlib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./profiles/${systemSettings.profile}/home.nix
-          ./user/modules/.bundle.nix
-          inputs.nixvim.homeManagerModules.nixvim
-          inputs.stylix.homeManagerModules.stylix
-        ];
-        extraSpecialArgs = {
-          inherit inputs pkgs-stable userSettings systemSettings;
+      shared-modules = [
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useUserPackages = true;
+            useGlobalPkgs = true;
+            extraSpecialArgs = specialArgs;
+          };
+        }
+      ];
+
+    in
+    {
+      nixosConfigurations = {
+        main_pc = nixpkgs.lib.nixosSystem {
+
+          inherit specialArgs system;
+
+          modules = shared-modules ++ [
+            ./hosts/main_pc.nix
+            ./system/modules/.bundle.nix
+            ./users/shyonae.nix
+            inputs.base16.nixosModule
+            inputs.nix-ld.nixosModules.nix-ld
+            inputs.nix-index-database.nixosModules.nix-index
+            {
+              imports = [ aagl.nixosModules.default ];
+              nix.settings = aagl.nixConfig; # Set up Cachix
+              programs.anime-game-launcher.enable = true; # Adds launcher and /etc/hosts rules
+              programs.honkers-railway-launcher.enable = true;
+            }
+          ];
         };
       };
     };
