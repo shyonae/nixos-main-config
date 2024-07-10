@@ -5,7 +5,6 @@
   };
 
   config = lib.mkIf config.vim.enable {
-    stylix.targets.vim.enable = true;
     programs.vim = {
       enable = true;
       extraConfig = ''

@@ -2,7 +2,7 @@
 let
   systemSettings = {
     system = "x86_64-linux";
-    hostname = "homelab_main_hp_sff";
+    hostname = "homelabMainHPSFF";
     timezone = "Europe/Rome";
     locale = "en_US.UTF-8";
   };

@@ -9,14 +9,20 @@
     home.packages = with pkgs; [
       base16-schemes
       bibata-cursors
+      gnome.gnome-shell-extensions
     ];
 
     stylix = {
       enable = true;
-      targets.gtk.enable = true;
-      targets.lazygit.enable = true;
-      targets.vscode.enable = true;
-      targets.gnome.enable = true;
+      targets = {
+        gtk.enable = true;
+        gnome.enable = true;
+        lazygit.enable = true;
+        vscode.enable = true;
+        kitty.enable = true;
+        tmux.enable = true;
+        vim.enable = true;
+      };
 
       autoEnable = true;
       # nix build nixpkgs#bibata-cursors

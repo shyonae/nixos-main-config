@@ -5,7 +5,6 @@
   };
 
   config = lib.mkIf config.kitty.enable {
-    stylix.targets.kitty.variant256Colors = true;
     programs.kitty = {
       enable = true;
       # Pick "name" from https://github.com/kovidgoyal/kitty-themes/blob/master/themes.json

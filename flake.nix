@@ -33,7 +33,7 @@
     {
       nixosConfigurations = {
 
-        main_pc = nixpkgs.lib.nixosSystem {
+        mainpc = nixpkgs.lib.nixosSystem {
 
           inherit specialArgs system;
 
@@ -53,12 +53,12 @@
           ];
         };
 
-        homelab_main_hp_sff = nixpkgs.lib.nixosSystem {
+        homelabmainhpsff = nixpkgs.lib.nixosSystem {
 
           inherit specialArgs system;
 
           modules = shared-modules ++ [
-            ./hosts/main_pc.nix
+            ./hosts/homelab_main_hp_sff.nix
             ./modules/system/.bundle.nix
             ./users/shyonae-homelab.nix
             inputs.base16.nixosModule

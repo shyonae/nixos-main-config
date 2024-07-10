@@ -5,7 +5,6 @@
   };
 
   config = lib.mkIf config.tmux.enable {
-    stylix.targets.tmux.enable = true;
     programs.tmux = {
       enable = true;
       shortcut = "a";
