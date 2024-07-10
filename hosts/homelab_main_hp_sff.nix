@@ -2,7 +2,7 @@
 let
   systemSettings = {
     system = "x86_64-linux";
-    hostname = "homelabMainHPSFF";
+    hostname = "homelabmainhpsff";
     timezone = "Europe/Rome";
     locale = "en_US.UTF-8";
   };
@@ -15,7 +15,6 @@ in
     ];
 
   gnome.enable = lib.mkDefault false;
-  pkgsOther.enable = lib.mkDefault false;
   bluetooth.enable = lib.mkDefault false;
 
   docker.enable = true;

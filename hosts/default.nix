@@ -10,7 +10,6 @@
   pulseaudio.enable = lib.mkDefault false;
   timesyncd.enable = true;
   # pkgs
-  pkgsOther.enable = true;
   pkgsCore.enable = true;
 
   # for nix-index-database

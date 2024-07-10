@@ -5,7 +5,7 @@
 let
   systemSettings = {
     system = "x86_64-linux";
-    hostname = "mainPC";
+    hostname = "mainpc";
     timezone = "Europe/Rome";
     locale = "en_US.UTF-8";
   };
@@ -20,6 +20,7 @@ in
 
   hardware.opentabletdriver.enable = true;
 
+  pkgsOther.enable = true;
   mullvad.enable = true;
   samba.enable = true;
   ssh.enable = true;

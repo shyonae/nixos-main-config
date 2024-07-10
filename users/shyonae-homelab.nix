@@ -41,7 +41,7 @@ in
         inputs.stylix.homeManagerModules.stylix
       ];
 
-      homePkgsCore.enable = lib.mkDefault false;
+      homePkgsOther.enable = lib.mkDefault false;
 
       home = {
         username = userSettings.username;

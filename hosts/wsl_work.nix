@@ -14,6 +14,25 @@ in
       ./default.nix
     ];
 
+  gnome.enable = lib.mkDefault false;
+  bluetooth.enable = lib.mkDefault false;
+
+  docker.enable = true;
+  nfs.enable = true;
+  samba.enable = true;
+  ssh.enable = true;
+  nixLd.enable = true;
+
+  programs.zsh.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    lazydocker
+    lazygit
+    fastfetch
+    regctl
+    cron
+  ];
+
   wsl = {
     enable = true;
     defaultUser = "shyonae";
@@ -45,26 +64,6 @@ in
       "/nix/var/nix/profiles/per-user/root/channels"
     ];
   };
-
-  gnome.enable = lib.mkDefault false;
-  pkgsOther.enable = lib.mkDefault false;
-  bluetooth.enable = lib.mkDefault false;
-
-  docker.enable = true;
-  nfs.enable = true;
-  samba.enable = true;
-  ssh.enable = true;
-  nixLd.enable = true;
-
-  programs.zsh.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    lazydocker
-    lazygit
-    fastfetch
-    regctl
-    cron
-  ];
 
   # Networking
   networking.hostName = systemSettings.hostname; # Define your hostname.
