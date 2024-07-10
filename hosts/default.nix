@@ -22,4 +22,6 @@
 
   # if plugged in, closing the laptop lid doesn't suspend
   services.logind.lidSwitchExternalPower = "ignore";
+
+  system.stateVersion = "23.05"; # Did you read the comment?
 }

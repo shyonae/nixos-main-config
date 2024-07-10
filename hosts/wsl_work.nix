@@ -168,5 +168,4 @@ in
   # networking.interfaces.eth0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  system.stateVersion = "23.05"; # Did you read the comment?
 }
