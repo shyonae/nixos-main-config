@@ -33,6 +33,8 @@ in
       inherit pkgs pkgs-stable userSettings;
     };
 
+    backupFileExtension = "backup";
+
     users.${userSettings.username} = { pkgs, ... }: {
 
       imports = [
@@ -41,6 +43,7 @@ in
         inputs.stylix.homeManagerModules.stylix
       ];
 
+      homePkgsCore.enable = true;
       homePkgsOther.enable = true;
       syncthing.enable = true;
 

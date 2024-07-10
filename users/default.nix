@@ -11,6 +11,4 @@
   tmux.enable = true;
   vim.enable = true;
   zsh.enable = true;
-  # pkgs
-  homePkgsCore.enable = true;
 }	
