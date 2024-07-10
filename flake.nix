@@ -67,6 +67,20 @@
           ];
         };
 
+        wslwork = nixpkgs.lib.nixosSystem {
+
+          inherit specialArgs system;
+
+          modules = shared-modules ++ [
+            ./hosts/wsl_work.nix
+            ./modules/system/.bundle.nix
+            ./users/shyonae-homelab.nix
+            inputs.base16.nixosModule
+            inputs.nix-ld.nixosModules.nix-ld
+            inputs.nix-index-database.nixosModules.nix-index
+          ];
+        };
+
       };
     };
 

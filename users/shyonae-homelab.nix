@@ -12,7 +12,7 @@ let
     polarity = "light"; # stylix polarity
     cursorName = "Bibata-Modern-Amber";
     cursorSize = 20;
-    base16SchemeName = "gigavolt";
+    base16SchemeName = "sakura";
   };
 in
 {
