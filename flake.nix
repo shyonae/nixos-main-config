@@ -76,6 +76,7 @@
             ./modules/system/.bundle.nix
             ./users/shyonae-homelab.nix
             inputs.base16.nixosModule
+            inputs.nixos-wsl.nixosModules.wsl
             inputs.nix-ld.nixosModules.nix-ld
             inputs.nix-index-database.nixosModules.nix-index
           ];
@@ -110,6 +111,11 @@
     stylix = {
       url = "github:danth/stylix";
       inputs.home-manager.follows = "home-manager";
+    };
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-index-database = {

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, inputs, modulesPath, ... }:
 let
   systemSettings = {
     system = "x86_64-linux";
@@ -9,17 +9,17 @@ let
 in
 {
   imports =
-  [
-    (modulesPath + "/profiles/qemu-guest.nix")
-    ./default.nix
-  ];
+    [
+      (modulesPath + "/profiles/qemu-guest.nix")
+      ./default.nix
+    ];
 
   wsl = {
     enable = true;
+    defaultUser = "shyonae";
     wslConf.automount.root = "/mnt";
     wslConf.interop.appendWindowsPath = false;
     wslConf.network.generateHosts = false;
-    defaultUser = userSettings.username;
     startMenuLaunchers = true;
 
     # Enable integration with Docker Desktop (needs to be installed)
@@ -34,17 +34,17 @@ in
 
   nix = {
     settings = {
-      trusted-users = [userSettings.username];
+      trusted-users = [ "shyonae" ];
       accept-flake-config = true;
       auto-optimise-store = true;
     };
-  };
 
-  nixPath = [
-    "nixpkgs=${inputs.nixpkgs.outPath}"
-    "nixos-config=/etc/nixos/configuration.nix"
-    "/nix/var/nix/profiles/per-user/root/channels"
-  ];
+    nixPath = [
+      "nixpkgs=${inputs.nixpkgs.outPath}"
+      "nixos-config=/etc/nixos/configuration.nix"
+      "/nix/var/nix/profiles/per-user/root/channels"
+    ];
+  };
 
   gnome.enable = lib.mkDefault false;
   pkgsOther.enable = lib.mkDefault false;
@@ -91,65 +91,75 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/mnt/wsl" =
-    { device = "none";
+    {
+      device = "none";
       fsType = "tmpfs";
     };
 
   fileSystems."/usr/lib/wsl/drivers" =
-    { device = "drivers";
+    {
+      device = "drivers";
       fsType = "9p";
     };
 
   fileSystems."/lib/modules" =
-    { device = "none";
+    {
+      device = "none";
       fsType = "tmpfs";
     };
 
   fileSystems."/lib/modules/5.15.153.1-microsoft-standard-WSL2" =
-    { device = "none";
+    {
+      device = "none";
       fsType = "overlay";
     };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/35d80675-65c9-4eb1-8e10-fe50771c58d6";
+    {
+      device = "/dev/disk/by-uuid/35d80675-65c9-4eb1-8e10-fe50771c58d6";
       fsType = "ext4";
     };
 
   fileSystems."/mnt/wslg" =
-    { device = "none";
+    {
+      device = "none";
       fsType = "tmpfs";
     };
 
   fileSystems."/mnt/wslg/distro" =
-    { device = "none";
+    {
+      device = "none";
       fsType = "none";
       options = [ "bind" ];
     };
 
   fileSystems."/usr/lib/wsl/lib" =
-    { device = "none";
+    {
+      device = "none";
       fsType = "overlay";
     };
 
   fileSystems."/tmp/.X11-unix" =
-    { device = "/mnt/wslg/.X11-unix";
+    {
+      device = "/mnt/wslg/.X11-unix";
       fsType = "none";
       options = [ "bind" ];
     };
 
   fileSystems."/mnt/wslg/doc" =
-    { device = "none";
+    {
+      device = "none";
       fsType = "overlay";
     };
 
   fileSystems."/mnt/c" =
-    { device = "C:\134";
+    {
+      device = "C:\134";
       fsType = "9p";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/7eea8ec2-8ac8-4cf4-bee6-d0a427e092fe"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/7eea8ec2-8ac8-4cf4-bee6-d0a427e092fe"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -159,4 +169,5 @@ in
   # networking.interfaces.eth0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  system.stateVersion = "23.05"; # Did you read the comment?
 }
