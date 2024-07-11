@@ -12,6 +12,7 @@
       lutris
       protonup
       moonlight-qt
+      prismlauncher
     ];
 
     programs.gamescope.enable = true;
