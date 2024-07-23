@@ -13,6 +13,7 @@
       protonup
       moonlight-qt
       prismlauncher
+      ns-usbloader
     ];
 
     programs.gamescope.enable = true;

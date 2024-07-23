@@ -23,6 +23,7 @@
       zsh
       lshw
       ffmpeg
+      jq
     ];
   };
 }

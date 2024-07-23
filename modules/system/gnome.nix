@@ -10,18 +10,22 @@
       enable = true;
       displayManager.gdm = {
         enable = true;
-        wayland = true;
+        wayland = false;
       };
+
+      xkb.layout = "us";
+      xkb.variant = "";
 
       # Enable the GNOME Desktop Environment.
       desktopManager.gnome.enable = true;
     };
 
-    # Configure keymap in X11
-    services.xserver = {
-      xkb.layout = "us";
-      xkb.variant = "";
-    };
+    services.xrdp.defaultWindowManager = "gnome-remote-desktop";
+    services.xrdp.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      gnome.gnome-remote-desktop
+    ];
 
     services.displayManager.defaultSession = "gnome-xorg";
   };

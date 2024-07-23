@@ -42,7 +42,6 @@
             ./modules/system/.bundle.nix
             ./users/shyonae.nix
             inputs.base16.nixosModule
-            inputs.nix-ld.nixosModules.nix-ld
             inputs.nix-index-database.nixosModules.nix-index
             {
               imports = [ aagl.nixosModules.default ];
@@ -135,11 +134,6 @@
     tt-schemes = {
       url = "github:tinted-theming/schemes";
       flake = false;
-    };
-
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     aagl = {

@@ -21,6 +21,7 @@ in
   hardware.opentabletdriver.enable = true;
 
   pkgsOther.enable = true;
+  gnome.enable = true;
   mullvad.enable = true;
   samba.enable = true;
   ssh.enable = true;
@@ -33,6 +34,33 @@ in
   virt.enable = true;
 
   programs.zsh.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    remmina
+  ];
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (
+        subject.isInGroup("users")
+          && (
+            action.id == "org.freedesktop.login1.reboot" ||
+            action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+            action.id == "org.freedesktop.login1.power-off" ||
+            action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+          )
+        )
+      {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+
+  networking.firewall = {
+    enable = false;
+  };
 
   boot.loader = {
     systemd-boot.enable = true;

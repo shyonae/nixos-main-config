@@ -5,7 +5,6 @@
       ./adb.nix
       ./bluetooth.nix
       ./docker.nix
-      ./firewall.nix
       ./flatpak.nix
       ./games.nix
       ./garbage-collect.nix

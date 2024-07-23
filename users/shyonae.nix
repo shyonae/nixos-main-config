@@ -23,7 +23,7 @@ in
     users.${userSettings.username} = {
       isNormalUser = true;
       description = userSettings.description;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "audio" "adbusers" "docker" "libvirtd" ];
+      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "audio" "adbusers" "docker" "libvirtd" "tty" "video" ];
       uid = 1000;
     };
   };

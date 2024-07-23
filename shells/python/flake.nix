@@ -22,9 +22,11 @@
             '';
 
             packages = with pkgs; [
-              python311Full
+              # python311Full
+              python310Full
               linuxHeaders
               conda
+              libxcrypt
             ];
 
             C_INCLUDE_PATH = "${pkgs.linuxHeaders}/include";

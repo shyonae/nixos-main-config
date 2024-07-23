@@ -1,10 +1,7 @@
 { lib, config, pkgs, pkgs-stable, ... }:
 {
-  # style
-  gnome.enable = true;
   # services
   bluetooth.enable = true;
-  firewall.enable = true;
   garbageCollect.enable = true;
   pipewire.enable = true;
   pulseaudio.enable = lib.mkDefault false;
