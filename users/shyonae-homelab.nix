@@ -9,10 +9,10 @@ let
     fontPkg = pkgs.fantasque-sans-mono; # Font package
     term = "kitty";
     editor = "vim"; # Default editor
-    polarity = "light"; # stylix polarity
+    polarity = "dark"; # stylix polarity
     cursorName = "Bibata-Modern-Amber";
     cursorSize = 20;
-    base16SchemeName = "sakura";
+    base16SchemeName = "solarized-dark";
   };
 in
 {

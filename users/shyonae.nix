@@ -10,10 +10,10 @@ let
     term = "kitty";
     browser = "floorp"; # Default browser
     editor = "vim"; # Default editor
-    polarity = "light"; # stylix polarity
+    polarity = "dark"; # stylix polarity
     cursorName = "Bibata-Modern-Amber";
     cursorSize = 20;
-    base16SchemeName = "sakura";
+    base16SchemeName = "solarized-dark";
   };
 in
 {

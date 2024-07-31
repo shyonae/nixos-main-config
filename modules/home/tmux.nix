@@ -18,6 +18,23 @@
 
       plugins = with pkgs; [
         tmuxPlugins.better-mouse-mode
+        # [Switch to session by name]: <prefix> + g
+        # [Creates new session by name]: <prefix> + C
+        # [Delete session without exiting tmux]: <prefix> + X
+        # [Switch to the last session]: <prefix> + S
+        # [Promote window to session]: <prefix> + @
+        tmuxPlugins.sessionist
+
+        # [To save]: <prefix> + CTRL-s
+        # [To restore]: <prefix> + CTRL-r
+        {
+          plugin = tmuxPlugins.resurrect;
+          extraConfig = ''
+            resurrect_dir="$HOME/.tmux/resurrect"
+            set -g @resurrect-dir $resurrect_dir
+            set -g @resurrect-capture-pane-contents 'on'
+          '';
+        }
       ];
 
       extraConfig = ''
