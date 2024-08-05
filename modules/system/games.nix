@@ -14,6 +14,12 @@
       moonlight-qt
       prismlauncher
       ns-usbloader
+      (retroarch.override {
+        cores = with libretro; [
+          melonds
+          mgba
+        ];
+      })
     ];
 
     programs.gamescope.enable = true;

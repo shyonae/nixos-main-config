@@ -25,6 +25,7 @@
 
     environment.systemPackages = with pkgs; [
       gnome.gnome-remote-desktop
+      gnomeExtensions.awesome-tiles
     ];
 
     services.displayManager.defaultSession = "gnome-xorg";
