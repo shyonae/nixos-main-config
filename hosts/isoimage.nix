@@ -1,7 +1,7 @@
 { config, lib, pkgs, pkgs-stable, modulesPath, ... }:
 {
   imports = [
-    "${modulesPath}/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
   ];
 
   environment.systemPackages = with pkgs; [
