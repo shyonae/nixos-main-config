@@ -81,6 +81,15 @@
           ];
         };
 
+        homelabIso = nixpkgs.lib.nixosSystem {
+
+          inherit specialArgs system;
+
+          modules = shared-modules ++ [
+            ./hosts/isoimage.nix
+          ];
+        };
+
       };
     };
 

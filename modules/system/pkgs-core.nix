@@ -24,6 +24,7 @@
       lshw
       ffmpeg
       jq
+      ventoy-full
     ];
   };
 }
