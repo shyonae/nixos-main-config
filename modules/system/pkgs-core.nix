@@ -18,6 +18,7 @@
       tree
       wget
       git
+      gh #github cli
       htop
       unzip
       zsh
