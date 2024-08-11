@@ -61,8 +61,6 @@
             ./modules/system/.bundle.nix
             ./users/shyonae-homelab.nix
             inputs.base16.nixosModule
-            inputs.nix-ld.nixosModules.nix-ld
-            inputs.nix-index-database.nixosModules.nix-index
           ];
         };
 
@@ -75,8 +73,6 @@
             ./modules/system/.bundle.nix
             ./users/shyonae-homelab.nix
             inputs.base16.nixosModule
-            inputs.nix-ld.nixosModules.nix-ld
-            inputs.nix-index-database.nixosModules.nix-index
           ];
         };
 
