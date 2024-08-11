@@ -34,6 +34,8 @@ in
     cron
   ];
 
+  services.logind.lidSwitchExternalPower = "ignore"; # prevents laptop from powering off when the lid is closed (while powered in)
+
   fileSystems."/nfs/backups" = {
     device = "192.168.1.12:/backups";
     fsType = "nfs4";
