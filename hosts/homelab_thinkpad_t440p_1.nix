@@ -37,6 +37,13 @@ in
   services.logind.lidSwitchExternalPower = "ignore"; # prevents laptop from powering off when the lid is closed (while powered in)
 
   # SMB Shares
+
+  fileSystems."/smb/backups" = {
+    device = "//192.168.1.12/backups";
+    fsType = "cifs";
+    options = [ "uid=1000" "gid=100" "credentials=/home/shyonae/.smb" "iocharset=utf8" "vers=3.0" "noperm" ];
+  };
+
   fileSystems."/smb/library" = {
     device = "//192.168.1.12/library";
     fsType = "cifs";
