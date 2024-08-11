@@ -45,6 +45,8 @@
         vlc
         # emulation
         genymotion
+
+        nodejs # temp package
       ])
 
       ++

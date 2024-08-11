@@ -66,6 +66,20 @@
           ];
         };
 
+        homelabthinkpadt440p1 = nixpkgs.lib.nixosSystem {
+
+          inherit specialArgs system;
+
+          modules = shared-modules ++ [
+            ./hosts/homelab_thinkpad_t440p_1.nix
+            ./modules/system/.bundle.nix
+            ./users/shyonae-homelab.nix
+            inputs.base16.nixosModule
+            inputs.nix-ld.nixosModules.nix-ld
+            inputs.nix-index-database.nixosModules.nix-index
+          ];
+        };
+
         wslwork = nixpkgs.lib.nixosSystem {
 
           inherit specialArgs system;

@@ -11,8 +11,7 @@
       libreoffice-fresh
 
       # other
-      # wine
-      wine64
+      wineWowPackages.stable
       tmux
       lazygit
       yt-dlp
