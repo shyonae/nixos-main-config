@@ -25,6 +25,7 @@
 
     environment.systemPackages = with pkgs; [
       gnome.gnome-remote-desktop
+      gnome-tweaks
       gnomeExtensions.awesome-tiles
     ];
 

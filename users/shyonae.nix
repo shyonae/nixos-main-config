@@ -11,12 +11,14 @@ let
     browser = "floorp"; # Default browser
     editor = "vim"; # Default editor
     polarity = "dark"; # stylix polarity
-    cursorName = "Bibata-Modern-Amber";
+    cursorName = "Kasane_Teto";
     cursorSize = 20;
     base16SchemeName = "solarized-dark";
+    cursorPath = "/home/${userSettings.username}/nix/users/themes/cursors/Kasane_Teto";
   };
 in
 {
+
   users = {
     defaultUserShell = pkgs.zsh;
 
@@ -48,6 +50,19 @@ in
       syncthing.enable = true;
 
       home = {
+        pointerCursor = {
+          gtk.enable = true;
+          x11.enable = true;
+          # size = userSettings.cursorSize;
+          # name = userSettings.cursorName;
+          package = lib.mkForce (
+            pkgs.runCommand "kasane-teto-cursor" { } ''
+              mkdir -p $out/share/icons
+              ln -s ${userSettings.cursorPath} $out/share/icons/
+            ''
+          );
+        };
+
         username = userSettings.username;
         homeDirectory = "/home/${userSettings.username}";
         stateVersion = "23.05";
@@ -61,8 +76,5 @@ in
         };
       };
     };
-
   };
-
-
 }

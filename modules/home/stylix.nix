@@ -8,7 +8,7 @@
 
     home.packages = with pkgs; [
       base16-schemes
-      bibata-cursors
+      # bibata-cursors
       gnome.gnome-shell-extensions
     ];
 
