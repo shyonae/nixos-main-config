@@ -34,7 +34,10 @@ in
     cron
   ];
 
-  services.logind.lidSwitchExternalPower = "ignore"; # prevents laptop from powering off when the lid is closed (while powered in)
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
 
   # SMB Shares
 
