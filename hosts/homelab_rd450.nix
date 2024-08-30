@@ -108,19 +108,18 @@ in
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/6d87d40f-9e44-41d7-8f85-488200e0a686";
+      device = "/dev/disk/by-uuid/3d0074a8-1107-4990-b2b1-ed7c6e251aed";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/3909-42BA";
+      device = "/dev/disk/by-uuid/E8DE-1B8C";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   networking.useDHCP = lib.mkDefault true;
-
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
