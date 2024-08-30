@@ -14,7 +14,7 @@
         # woeusb-ng
         caligula
         # syslinux-unstable
-        google-chrome
+        feishin
         motrix
         file
         scrot

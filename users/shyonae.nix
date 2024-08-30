@@ -53,8 +53,8 @@ in
         pointerCursor = {
           gtk.enable = true;
           x11.enable = true;
-          # size = userSettings.cursorSize;
-          # name = userSettings.cursorName;
+          # size = userSettings.cursorSize; # set in stylix
+          # name = userSettings.cursorName; # set in stylix
           package = lib.mkForce (
             pkgs.runCommand "kasane-teto-cursor" { } ''
               mkdir -p $out/share/icons
