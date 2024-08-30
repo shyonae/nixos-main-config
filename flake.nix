@@ -76,6 +76,18 @@
           ];
         };
 
+        homelabrd450 = nixpkgs.lib.nixosSystem {
+
+          inherit specialArgs system;
+
+          modules = shared-modules ++ [
+            ./hosts/homelab_rd450.nix
+            ./modules/system/.bundle.nix
+            ./users/shyonae-homelab.nix
+            inputs.base16.nixosModule
+          ];
+        };
+
         wslwork = nixpkgs.lib.nixosSystem {
 
           inherit specialArgs system;
@@ -90,16 +102,6 @@
             inputs.nix-index-database.nixosModules.nix-index
           ];
         };
-
-        homelabIso = nixpkgs.lib.nixosSystem {
-
-          inherit specialArgs system;
-
-          modules = shared-modules ++ [
-            ./hosts/isoimage.nix
-          ];
-        };
-
       };
     };
 
@@ -117,14 +119,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    # };
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     stylix = {
       url = "github:danth/stylix";
@@ -157,9 +159,7 @@
 
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
-      # Or, if you follow Nixkgs release 24.05:
-      # url = "github:ezKEa/aagl-gtk-on-nix/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

@@ -2,7 +2,7 @@
 let
   systemSettings = {
     system = "x86_64-linux";
-    hostname = "homelabmainhpsff";
+    hostname = "homelabd450";
     timezone = "Europe/Rome";
     locale = "en_US.UTF-8";
   };
@@ -101,41 +101,26 @@ in
     LC_TIME = systemSettings.locale;
   };
 
-  boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/a0c24063-27fe-457d-b6e7-c9094940f046";
+      device = "/dev/disk/by-uuid/6d87d40f-9e44-41d7-8f85-488200e0a686";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/CEAA-A8D5";
+      device = "/dev/disk/by-uuid/3909-42BA";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-03c84bf83522.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-0925a95d82b2.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-32e381c44d4f.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-4b247170a98f.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-4c5f1a95c82a.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-6e737b695afc.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-7f0054c6082e.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-af5e6be8302b.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-b7ed4afd3d89.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-c2c8e5c0256b.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp6s18.useDHCP = lib.mkDefault true;
+
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
