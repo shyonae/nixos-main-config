@@ -24,7 +24,7 @@
     services.xrdp.enable = true;
 
     environment.systemPackages = with pkgs; [
-      gnome.gnome-remote-desktop
+      gnome-remote-desktop
       gnome-tweaks
       gnomeExtensions.awesome-tiles
     ];

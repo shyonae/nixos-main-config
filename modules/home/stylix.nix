@@ -9,7 +9,7 @@
     home.packages = with pkgs; [
       base16-schemes
       # bibata-cursors
-      gnome.gnome-shell-extensions
+      gnome-shell-extensions
     ];
 
     stylix = {

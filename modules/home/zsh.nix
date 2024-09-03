@@ -32,7 +32,7 @@ in
           dev-pwsh = "nix develop ${flakeDir}/shells/powershell/flake.nix -c zsh";
           sync-system = "sudo nixos-rebuild switch --flake ${nixMainFlakeFolder}";
           flake-update = "sudo nix flake update ${nixMainFlakeFolder}";
-          system-upgrade = "sudo nixos-rebuild switch --flake ${nixMainFlakeFolder} --upgrade";
+          full-system-upgrade = "nix-channel --update; flake-update; sudo nixos-rebuild switch --flake ${nixMainFlakeFolder} --upgrade";
         };
 
       oh-my-zsh = {

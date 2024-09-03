@@ -14,6 +14,7 @@
         # woeusb-ng
         caligula
         # syslinux-unstable
+        lrcget
         feishin
         motrix
         file
