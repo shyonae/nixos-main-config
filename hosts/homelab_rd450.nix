@@ -22,6 +22,7 @@ in
   samba.enable = true;
   ssh.enable = true;
   nixLd.enable = true;
+  nvidia.enable = true;
 
   programs.zsh.enable = true;
   programs.dconf.enable = true;
