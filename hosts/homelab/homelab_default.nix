@@ -2,7 +2,6 @@
 let
   systemSettings = {
     system = "x86_64-linux";
-    hostname = "homelabd450";
     timezone = "Europe/Rome";
     locale = "en_US.UTF-8";
     extraLocale = "it_IT.UTF-8";
