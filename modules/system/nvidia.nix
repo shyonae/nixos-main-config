@@ -9,7 +9,7 @@
     nixpkgs.config.nvidia.acceptLicense = true;
 
     hardware = {
-      graphics = {
+      opengl = {
         enable = true;
       };
 
