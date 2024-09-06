@@ -8,7 +8,7 @@
   config = lib.mkIf config.xdg.enable {
     xdg = {
       portal.enable = true;
-      portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      # portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
       portal.config.common.default = "*";
     };

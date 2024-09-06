@@ -22,6 +22,7 @@ in
 
   pkgsOther.enable = true;
   gnome.enable = true;
+  xdg.enable = true;
   mullvad.enable = true;
   samba.enable = true;
   ssh.enable = true;
@@ -59,7 +60,7 @@ in
   '';
 
   networking.firewall = {
-    enable = false;
+    enable = true;
   };
 
   boot.loader = {

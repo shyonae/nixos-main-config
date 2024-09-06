@@ -68,6 +68,7 @@ in
         stateVersion = "23.05";
 
         sessionVariables = {
+          # NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
           EDITOR = lib.mkForce userSettings.editor;
           TERM = userSettings.term;
           BROWSER = userSettings.browser;
