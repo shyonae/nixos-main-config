@@ -9,6 +9,9 @@
       enable = true;
       userName = "shyonae";
       userEmail = "scionae@gmail.com";
+      extraConfig = {
+        "push.autoSetupRemote" = "always";
+      };
       aliases = {
         co = "checkout";
         br = "branch";
