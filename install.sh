@@ -36,12 +36,12 @@ fi
 echo "Generating hardware config..."
 sudo nixos-generate-config --show-hardware-config > /etc/nixos/hardware-configuration.nix
 
-is_nixos_unstable_present=$(nix-channel --list | grep -c "nixos")
+is_nixos_present=$(nix-channel --list | grep -c "nixos")
 
-if [[ "$is_nixos_unstable_present" -eq 0 ]]; then
+if [[ "$is_nixos_present" -eq 0 ]]; then
     echo "NixOS unstable channel not found. Adding..."
     sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-elif [[ "$file_name" == *"homelab"* ]]; then
+elif [[ "$file_name" == *"homelab"* && "$is_nixos_present" -eq 0 ]]; then
     echo "Homelab detected. NixOS stable channel not found. Adding..."
     sudo nix-channel --add https://nixos.org/channels/nixos-24.05 nixos
 else

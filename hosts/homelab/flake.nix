@@ -30,8 +30,8 @@
       ];
 
       common-modules = [
-        ../../modules/system/.bundle.nix
-        ../../users/shyonae-homelab.nix
+        MAIN_DIRECTORY/modules/system/.bundle.nix
+        MAIN_DIRECTORY/users/shyonae-homelab.nix
         inputs.base16.nixosModule
       ];
 
