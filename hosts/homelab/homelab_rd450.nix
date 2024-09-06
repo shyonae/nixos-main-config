@@ -1,7 +1,7 @@
 { config, lib, pkgs, pkgs-unstable, modulesPath, ... }:
 let
   specificSystemSettings = {
-    hostname = "homelabd450";
+    hostname = "homelabrd450";
   };
 in
 {
