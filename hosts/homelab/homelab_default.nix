@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, modulesPath, ... }:
+{ config, lib, pkgs, pkgs-unstable, modulesPath, specificSystemSettings, ... }:
 let
   systemSettings = {
     system = "x86_64-linux";
@@ -37,6 +37,12 @@ in
   networking.firewall = {
     enable = true;
   };
+
+  boot.loader.systemd-boot.enable = if (specificSystemSettings.bootMode == "uefi") then true else false;
+  boot.loader.efi.canTouchEfiVariables = if (specificSystemSettings.bootMode == "uefi") then true else false;
+  boot.loader.efi.efiSysMountPoint = specificSystemSettings.bootMountPath; # does nothing if running bios rather than uefi
+  boot.loader.grub.enable = if (specificSystemSettings.bootMode == "uefi") then false else true;
+  boot.loader.grub.device = specificSystemSettings.grubDevice; # does nothing if running uefi rather than bios
 
   # SMB Shares
 

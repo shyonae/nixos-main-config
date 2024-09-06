@@ -2,14 +2,16 @@
 let
   specificSystemSettings = {
     hostname = "homelabmainhpsff";
+    bootMode = "uefi";
+    bootMountPath = "/boot";
+    grubDevice = "";
   };
 in
 {
   imports =
     [
-      (modulesPath + "/profiles/qemu-guest.nix")
-      ./homelab_default.nix
+      (import ./homelab_default.nix { inherit specificSystemSettings; })
     ];
 
-  networking.hostName = specificSystemSettings.hostname; # Define your hostname.
+  networking.hostName = specificSystemSettings.hostname;
 }
