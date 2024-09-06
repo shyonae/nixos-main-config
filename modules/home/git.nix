@@ -10,7 +10,9 @@
       userName = "shyonae";
       userEmail = "scionae@gmail.com";
       extraConfig = {
-        "push.autoSetupRemote" = "always";
+        push = {
+          autoSetupRemote = true;
+        };
       };
       aliases = {
         co = "checkout";
