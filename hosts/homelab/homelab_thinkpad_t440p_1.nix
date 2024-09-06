@@ -11,6 +11,8 @@ in
       ./homelab_default.nix
     ];
 
+  networking.hostName = specificSystemSettings.hostname; # Define your hostname.
+
   systemd.targets.sleep.enable = false;
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;

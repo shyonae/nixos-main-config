@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, modulesPath, specificSystemSettings, ... }:
+{ config, lib, pkgs, pkgs-unstable, modulesPath, ... }:
 let
   systemSettings = {
     system = "x86_64-linux";
@@ -111,7 +111,6 @@ in
   };
 
   # Networking
-  networking.hostName = specificSystemSettings.hostname;
   networking.networkmanager.enable = true; # Use networkmanager
 
   # Timezone and locale
