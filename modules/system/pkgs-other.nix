@@ -15,6 +15,7 @@
         caligula
         # syslinux-unstable
         lrcget
+        remmina
         feishin
         motrix
         file

@@ -15,9 +15,6 @@ in
       syntaxHighlighting.enable = true;
 
       shellAliases =
-        let
-          flakeDir = "~/nix";
-        in
         {
           ncl = "sudo nix-channel --list";
           nixgc = "nix-collect-garbage --delete-old";
@@ -25,14 +22,13 @@ in
 
           ll = "ls -lah";
           se = "sudoedit";
-          v = "nvim";
           ff = "fastfetch";
-          dev-mvn = "nix develop ${flakeDir}/shells/maven/flake.nix -c zsh";
-          dev-python = "nix develop ${flakeDir}/shells/python/flake.nix -c zsh";
-          dev-pwsh = "nix develop ${flakeDir}/shells/powershell/flake.nix -c zsh";
-          sync-system = "sudo nixos-rebuild switch --flake ${nixMainFlakeFolder}";
-          flake-update = "sudo nix flake update ${nixMainFlakeFolder}";
-          full-system-upgrade = "nix-channel --update; flake-update; sudo nixos-rebuild switch --flake ${nixMainFlakeFolder} --upgrade";
+          # dev-mvn = "nix develop ${flakeDir}/shells/maven/flake.nix -c zsh";
+          # dev-python = "nix develop ${flakeDir}/shells/python/flake.nix -c zsh";
+          # dev-pwsh = "nix develop ${flakeDir}/shells/powershell/flake.nix -c zsh";
+          sync-system = "sudo nixos-rebuild switch --flake /etc/nixos --impure";
+          flake-update = "sudo nix flake update /etc/nixos --impure";
+          full-system-upgrade = "nix-channel --update; flake-update; sudo nixos-rebuild switch --flake /etc/nixos --impure";
         };
 
       oh-my-zsh = {

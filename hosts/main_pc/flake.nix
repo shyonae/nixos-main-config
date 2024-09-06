@@ -34,13 +34,11 @@
       nixosConfigurations = {
 
         mainpc = nixpkgs.lib.nixosSystem {
-
           inherit specialArgs system;
-
           modules = shared-modules ++ [
-            ./hosts/main_pc.nix
-            ./modules/system/.bundle.nix
-            ./users/shyonae.nix
+            MAIN_DIRECTORY/hosts/main_pc/main_pc.nix
+            MAIN_DIRECTORY/modules/system/.bundle.nix
+            MAIN_DIRECTORY/users/shyonae.nix
             inputs.base16.nixosModule
             inputs.nix-index-database.nixosModules.nix-index
             {
@@ -49,57 +47,6 @@
               programs.anime-game-launcher.enable = true; # Adds launcher and /etc/hosts rules
               programs.honkers-railway-launcher.enable = true;
             }
-          ];
-        };
-
-        homelabmainhpsff = nixpkgs.lib.nixosSystem {
-
-          inherit specialArgs system;
-
-          modules = shared-modules ++ [
-            ./hosts/homelab_main_hp_sff.nix
-            ./modules/system/.bundle.nix
-            ./users/shyonae-homelab.nix
-            inputs.base16.nixosModule
-          ];
-        };
-
-        homelabthinkpadt440p1 = nixpkgs.lib.nixosSystem {
-
-          inherit specialArgs system;
-
-          modules = shared-modules ++ [
-            ./hosts/homelab_thinkpad_t440p_1.nix
-            ./modules/system/.bundle.nix
-            ./users/shyonae-homelab.nix
-            inputs.base16.nixosModule
-          ];
-        };
-
-        homelabrd450 = nixpkgs.lib.nixosSystem {
-
-          inherit specialArgs system;
-
-          modules = shared-modules ++ [
-            ./hosts/homelab_rd450.nix
-            ./modules/system/.bundle.nix
-            ./users/shyonae-homelab.nix
-            inputs.base16.nixosModule
-          ];
-        };
-
-        wslwork = nixpkgs.lib.nixosSystem {
-
-          inherit specialArgs system;
-
-          modules = shared-modules ++ [
-            ./hosts/wsl_work.nix
-            ./modules/system/.bundle.nix
-            ./users/shyonae-homelab.nix
-            inputs.base16.nixosModule
-            inputs.nixos-wsl.nixosModules.wsl
-            inputs.nix-ld.nixosModules.nix-ld
-            inputs.nix-index-database.nixosModules.nix-index
           ];
         };
       };
@@ -131,11 +78,6 @@
     stylix = {
       url = "github:danth/stylix";
       inputs.home-manager.follows = "home-manager";
-    };
-
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-index-database = {

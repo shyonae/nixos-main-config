@@ -1,10 +1,10 @@
 { lib, config, pkgs, pkgs-stable, ... }:
 {
   # services
-  bluetooth.enable = true;
+  bluetooth.enable = false;
   garbageCollect.enable = true;
   pipewire.enable = true;
-  pulseaudio.enable = lib.mkDefault false;
+  # pulseaudio.enable = false;
   timesyncd.enable = true;
   # pkgs
   pkgsCore.enable = true;
@@ -17,8 +17,5 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # if plugged in, closing the laptop lid doesn't suspend
-  services.logind.lidSwitchExternalPower = "ignore";
-
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.05";
 }

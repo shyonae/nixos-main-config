@@ -2,11 +2,11 @@
 let
   userSettings = {
     username = "shyonae";
-    description = "One sky. One destiny.";
+    description = "yabailab";
     email = "";
     nixMainFlakeFolder = "$HOME/nix";
-    fontName = "Fantasque Sans Mono"; # Selected font
-    fontPkg = pkgs.fantasque-sans-mono; # Font package
+    fontName = "Fantasque Sans Mono";
+    fontPkg = pkgs.fantasque-sans-mono;
     term = "kitty";
     editor = "vim"; # Default editor
     polarity = "dark"; # stylix polarity

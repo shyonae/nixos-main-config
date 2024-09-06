@@ -5,8 +5,8 @@ let
     description = "One sky. One destiny.";
     email = "";
     nixMainFlakeFolder = "$HOME/nix";
-    fontName = "Fantasque Sans Mono"; # Selected font
-    fontPkg = pkgs.fantasque-sans-mono; # Font package
+    fontName = "Fantasque Sans Mono";
+    fontPkg = pkgs.fantasque-sans-mono;
     term = "kitty";
     browser = "floorp"; # Default browser
     editor = "vim"; # Default editor

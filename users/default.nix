@@ -6,7 +6,7 @@
   # others
   git.enable = true;
   htop.enable = true;
-  hyprland.enable = lib.mkDefault false; # IF SET TO TRUE, REMOVE DEFAULT AND DISABLE GNOME!
+  # hyprland.enable = lib.mkDefault false; # IF SET TO TRUE, REMOVE DEFAULT AND DISABLE GNOME!
   kitty.enable = true;
   tmux.enable = true;
   vim.enable = true;

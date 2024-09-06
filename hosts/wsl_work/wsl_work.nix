@@ -6,12 +6,16 @@ let
     timezone = "Europe/Rome";
     locale = "en_US.UTF-8";
   };
+
+  specificSystemSettings = {
+    hostname = "mainpc";
+  };
 in
 {
   imports =
     [
       (modulesPath + "/profiles/qemu-guest.nix")
-      ./default.nix
+      ../default.nix
     ];
 
   gnome.enable = lib.mkDefault false;
